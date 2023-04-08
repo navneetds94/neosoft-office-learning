@@ -1,0 +1,57 @@
+<!-- Add Product Modal --> 
+<div class="modal fade" id="addProductModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title h5 pl-4">Add Product</h5>
+                <button type="button" class="close btn-close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form action="/submit-product" method="POST" class="pl-4 pr-4 pb-4">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="prodName">Name</label>
+                                <input type="text" class="form-control input-height" name="name" id="prodName" required />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="prodCategory">Category</label>
+                                <input type="text" class="form-control input-height" name="category"
+                                    id="prodCategory" required />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="prodImage">Image</label>
+                                <input type="text" class="form-control input-height" name="image" id="prodImage" required />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="prodPrice">Price</label>
+                                <input type="text" class="form-control input-height" name="price" id="prodPrice" required />
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <label for="prodDesc">Description</label>
+                                <textarea type="text" class="form-control textarea-height" name="desc"
+                                    id="prodDesc" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 pt-4">
+                            <button class="btn btn-secondary"><i class="fa fa-save"></i> Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop-div"></div>
+</div>

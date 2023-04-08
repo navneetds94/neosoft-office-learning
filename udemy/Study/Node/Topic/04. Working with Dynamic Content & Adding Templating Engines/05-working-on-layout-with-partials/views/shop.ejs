@@ -1,0 +1,16 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="/css/product.css">
+</head>
+<body class="top-padding">
+    <%- include('includes/header.ejs') %>
+    <main>
+        <%- include('pages/product-page.ejs') %>
+    </main>
+    <%- include('includes/modals.ejs') %>
+    <%- include('includes/scripts.ejs') %>
+    <script>
+        $('.btnAddMore').click(function(){
+            $('#addProductModal').modal({show:true})
+        })
+    </script>
+<%- include('includes/end.ejs') %>

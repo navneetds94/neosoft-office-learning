@@ -1,0 +1,21 @@
+extends layouts/main-layout
+
+block content
+    main
+        h1 This is a product list page
+
+        if prod.length > 0
+            .row.mt-5
+                each data in prod
+                    .col-lg-3.col-md-4.col-sm-4
+                        .card.shadow.p-4.align-items-center
+                            strong.d-block.mb-3.h3 #{data.name}
+                            p.h4.text-center.text-secondary.font-weight-normal #{data.description}
+                            small.text-success $#{data.price}
+                            a(href="javascript: void(0)").btn.btn-primary.scale-s7.mt-3 Add to cart
+        else
+            p Not any product found yet
+
+        .add_more
+            a(href="/add-product") 
+                i.fa.fa-plus 

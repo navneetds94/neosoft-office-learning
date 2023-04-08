@@ -1,0 +1,22 @@
+<main>
+    <h1>This is a product list page</h1>
+    {{#if hasProducts}}
+    <div class="row mt-5">
+        {{#each prods}}
+            <div class="col-lg-3 col-md-4 col-sm-4">
+                <div class="card shadow p-4 align-items-center">
+                    <strong class="strong d-block mb-3 h3">{{ this.name}}</strong>
+                    <p class="h4 text-center text-secondary font-weight-normal">{{ this.desciption }}</p>
+                    <small class="text-success">${{ this.price }}</small>
+                    <a href="javascript: void(0)" class="btn btn-primary scale-s7 mt-3">Add to cart</a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <p>Not any product found yet</p>
+    {{/if}}
+    <div class="add_more">
+        <a href="/add-product"><i class="fa fa-plus"></i></a>
+    </div>
+</main>

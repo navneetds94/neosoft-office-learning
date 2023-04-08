@@ -1,0 +1,20 @@
+extends layouts/main-layout
+
+block content
+    main
+        h1 This is a rateings page
+        if rates.length > 0
+            .row.mt-4
+                each data in rates
+                    .col-lg-3.col-md-4.col-sm-4
+                        .card.shadow.p-4
+                            strong.d-block.mb-3.h3 #{data.email}
+                            span.d-block.mb-3.text-info #{data.pwd}
+                            p.h4.text-secondary.font-weight-normal #{data.cmt}
+                            small.text-success #{data.rate}
+        else 
+            p Not have any rateings found yet
+
+        .add_more
+            a(href="/add-rateing") 
+                i.fa.fa-plus
