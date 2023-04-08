@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Var</title>
+</head>
+<body>
+    <h1>var example</h1>
+    <script>
+        var a = 20
+        console.log(a)
+        function abc(){
+            var a  = 30
+            console.log(a)
+        }
+        abc()
+        console.log(a)
+
+        console.log('-----------------------')
+        var counter = 0
+        function plusCounter(){
+            counter++
+            console.log(counter)
+        }
+        plusCounter()
+        plusCounter()
+        plusCounter()
+        plusCounter()
+        plusCounter()
+
+        console.log(`current value of counter is now :- ${counter}`)
+    </script>
+</body>
+</html>

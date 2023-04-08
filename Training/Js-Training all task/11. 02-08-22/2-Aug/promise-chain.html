@@ -1,0 +1,25 @@
+<!Doctype html>
+<html>
+    <body>
+        <h2> Promise Chain</h2>
+        <script>
+            let p=new Promise((resolve,reject)=>{
+      setTimeout(()=>{
+         resolve(100)
+      },3000)
+  })
+         p.then(res=>{
+     console.log(res);
+     return res*3;
+  })
+   .then(res=>{
+      console.log(res);
+     return res*4;
+   })
+    .then(res=>{
+      console.log(res);
+     
+   })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!Doctype html>
+<html>
+
+<body>
+    <h2> Closures Example 2</h2>
+   
+    <script>
+        function calculator(a,b){
+            var x=3;
+             return {
+                  add: function(){
+                     result=a+b+3;
+                     return fixedTwoPlaces(result)
+                  },
+                  sub: function(){
+                     result=a-b-3;
+                     return fixedTwoPlaces(result)
+                  }
+             }
+        }
+        function fixedTwoPlaces(value){
+            return value.toFixed(2);
+        }
+        var calc=calculator(10.01,2.01);
+        console.log(calc.add())
+        console.log(calc.sub())
+    </script>
+</body>
+
+</html>

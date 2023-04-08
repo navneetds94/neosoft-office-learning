@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2> Set</h2>
+        <script>
+             function union(setA,setB){
+                const x=new Set(setA);
+                for(const elem of setB){
+                    x.add(elem)
+                }
+                return x;
+             }
+             const one=new Set([1,2,3,4]);
+             const two=new Set([2,3]);
+             console.log(union(one,two));
+             //remove duplicat values from array 
+             const arr=[1,2,3,1,2,3,2,2,2,4,5,6,2,3,4,5,6,7];
+             console.log([...new Set(arr)]);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2> Array Methods example</h2>
+        <script>
+             let arr=[23,4,56,7,8,1];
+             //isArray 
+             if(Array.isArray(arr)){
+                // //  arr.push(45,89,67);//add th end
+                // //  arr.pop();//delete last element
+                // //  arr.unshift(4,5,6);//add start 
+                // //  arr.shift();//remove first element 
+                //  console.log(arr);// 5 6 23 4 56 7 8 1 45 67 
+                //  //arr.includes() : check value is present or not 
+                //  if(arr.includes(67)){
+                //    arr.splice()
+                //  }
+                arr.splice(2,2);//remove 56 7
+                // arr.splice(2,2,156,17);//23 4 156 17
+                arr.splice(2,0,156,17);
+                console.log(arr)
+                // map :- create a new array populated with the results of calling provided function on every element in the calling array 
+                let newArray=arr.map(val=> val*2);
+                console.log(newArray)
+                //filter :- return an array as per the filter condition 
+                let newfil=newArray.filter(val=> val%4==0);
+                console.log(newfil)
+                
+             }
+             else {
+                alert("It is not array")
+             }
+        </script>
+    </body>
+</html>

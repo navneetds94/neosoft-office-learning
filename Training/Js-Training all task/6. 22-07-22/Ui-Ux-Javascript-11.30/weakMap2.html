@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2> WeakMap example</h2>
+        <script>
+          const wm1=new WeakMap();
+          const wm2=new WeakMap();
+          const wm3=new WeakMap(); 
+          const o1={}
+          const o2=function(){} 
+          const o3=window;
+          wm1.set(o1,56);
+          wm1.set(o1,"sumit")
+          wm2.set(o1,o2)
+          console.log(wm2.get(o1))
+        </script>
+    </body>
+</html>

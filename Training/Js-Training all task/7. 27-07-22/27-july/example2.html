@@ -1,0 +1,25 @@
+<!Doctype html>
+<html>
+
+<body>
+    <h2> Closures Example 2</h2>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet natus asperiores libero et temporibus deleniti nam quidem voluptatum voluptatibus ipsa ex impedit, ratione porro minus ducimus dolorem dicta voluptas itaque?</p>
+    <a href="#" id="size-20"> 20 </a> &nbsp;&nbsp;&nbsp;
+    <a href="#" id="size-25"> 25 </a>&nbsp;&nbsp;&nbsp;
+    <a href="#" id="size-30"> 30 </a>
+    <script>
+      function increaseSize(size){
+        return function(){
+            document.body.style.fontSize=`${size}px`
+        }
+      }
+      const size20=increaseSize(20)
+      const size25=increaseSize(25)
+      const size30=increaseSize(30)
+      document.getElementById('size-20').onclick=size20;
+      document.getElementById('size-25').onclick=size25;
+      document.getElementById('size-30').onclick=size30;
+    </script>
+</body>
+
+</html>

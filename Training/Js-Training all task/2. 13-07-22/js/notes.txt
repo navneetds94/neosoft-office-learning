@@ -1,0 +1,92 @@
+-> Javascript :- It is an client-side scripting language.
+   -> client-side :- execute by the browser 
+   -> scripting language :- interpriting language (line line)
+   It is a programming language initially designed to interect with elements of web pages(runtime DOM manupaulation).
+    --> Javascript consists of 3 parts 
+       1. ECMAScript provides the core functionalities.
+       2. DOM provides a interface for interecting with elements.
+       3. BOM provides the browser API for interecting with the browser.
+     -> How Javascript is work on the browser (execute)
+     When a web page is loaded , the Javascript engine in the browser executes a Javascript code.The Javascript code then modifies the HTML and CSS to update the UI dynamically.
+     *** Modern Javascript browsers are typically implemented as just-in-time (JIT) compilers that compile Javascript code to bytecode for improved performance.
+
+     --> Histroy of Javascript
+      1995 -> Mocha 
+      Then its name is changed LiveScript 
+      -> Netscape change LiveScript to Javascript (1.0)
+         -> Javascript in Netscape Navigator 
+         -> JScript in IE.
+         -> ECMA-263 , a standard for defining a new scripting lanaguage named (ECMAScript)
+         -> Old Javascript is known as ES5 
+         -> New Featues ECMA 2015 (Es 6)
+    -> How we execute Javascript code 
+       -> Javascript is case sensitive lanaguage 
+       -> extension is .js 
+       -> in <script> tag we write the js code 
+    -> How we implememt Javascript 
+       Internal way :
+        home.html 
+        <html>
+          <head>
+             <script>
+                js code 
+             </script>
+         </head>
+        </html> 
+       External way :
+       first.js 
+         Javascript code
+         home.html 
+        <html>
+          <head>
+             <script src="first.js">
+             </script>
+         </head>
+        </html> 
+        --> Comments :- to describe the code 
+          single :- // 
+          multiple :- /*  */
+          html :- <!-- -->
+        --> How we render | print data in browser 
+          document.write("--");
+        --> Console :- used to diplay data in console , debug a data and all erros are shown in the console.
+          console.log("--")
+*** Everything in Javascript is an object . all the properies are the part of window object 
+
+--> In every browser their is a Javascript engine which execute the Javascript code and give us output 
+  -> Chrome :- V8 
+  -> Firefox :- Spider Monkey 
+  -> Ie | Safari :- chakra 
+  --> Javascript is a programming 
+     --> Variables :- are the temporary memory location which hold input data.
+        -> var keyword :- 
+           var varname=value;
+             -> Rules to define variable name 
+               -> start with [a-zA-Z] or [_$]
+               -> after it combination of [a-zA-Z0-9_]
+            eg:
+            var empName="anuj";
+            var emp_salary=50000; 
+            -> var is the oldest keyword to declare a variable.
+            -> Scope :- global or function scope.It means that variables defined outside the function can be accessed globally and variable defined inside the function can be accessed witin in a function.
+        -> let keyword :- It is an improved version of var keyword.
+          Scope :- block scoped . The scope of a let variable is only block scoped.
+          eg:
+            for(i=1; i<=5;i++){
+              console.log(i)
+            }
+             console.log(i)
+        -> const keyword :- const keyword has all the properties that are same as let keyword expect the user cannot update it.(read only value)
+         -> Scope (block scoped) When we declare a const variable , thet need to initilize it , otherwise it return an error.
+
+         **** can we we change the const variable values in Javascript 
+            ** yes in array elements and object properties 
+        -> Hoisting :- It is a inbuild behavior in which a function or variable can be used before declaration.
+        eg:
+          -> variable hoisting 
+             console.log(a);
+             var a;
+          -> function hoisting 
+          if we define a function with expression then it cant move to the top.
+           
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2> Objects</h2>
+        <script>
+                let obj=new Object();
+                obj.fname="anuj"
+                obj.lname="sing";
+                obj.fullname=function(){
+                    return `${this.fname} ${this.lname}`
+                }
+                console.log(obj.fname);
+                console.log(obj.fullname());
+                //update data 
+                obj.fname="sumit";
+                console.log(obj);
+                //delete property 
+                delete obj.fullname;
+                console.log(obj)
+        </script>
+    </body>
+</html>

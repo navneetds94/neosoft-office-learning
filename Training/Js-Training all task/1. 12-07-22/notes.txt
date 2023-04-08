@@ -1,0 +1,59 @@
+-> Javascript :- It is an client-side scripting language.
+   -> client-side :- execute by the browser 
+   -> scripting language :- interpriting language (line line)
+   It is a programming language initially designed to interect with elements of web pages(runtime DOM manupaulation).
+    --> Javascript consists of 3 parts 
+       1. ECMAScript provides the core functionalities.
+       2. DOM provides a interface for interecting with elements.
+       3. BOM provides the browser API for interecting with the browser.
+     -> How Javascript is work on the browser (execute)
+     When a web page is loaded , the Javascript engine in the browser executes a Javascript code.The Javascript code then modifies the HTML and CSS to update the UI dynamically.
+     *** Modern Javascript browsers are typically implemented as just-in-time (JIT) compilers that compile Javascript code to bytecode for improved performance.
+
+     --> Histroy of Javascript
+      1995 -> Mocha 
+      Then its name is changed LiveScript 
+      -> Netscape change LiveScript to Javascript (1.0)
+         -> Javascript in Netscape Navigator 
+         -> JScript in IE.
+         -> ECMA-263 , a standard for defining a new scripting lanaguage named (ECMAScript)
+         -> Old Javascript is known as ES5 
+         -> New Featues ECMA 2015 (Es 6)
+    -> How we execute Javascript code 
+       -> Javascript is case sensitive lanaguage 
+       -> extension is .js 
+       -> in <script> tag we write the js code 
+    -> How we implememt Javascript 
+       Internal way :
+        home.html 
+        <html>
+          <head>
+             <script>
+                js code 
+             </script>
+         </head>
+        </html> 
+       External way :
+       first.js 
+         Javascript code
+         home.html 
+        <html>
+          <head>
+             <script src="first.js">
+             </script>
+         </head>
+        </html> 
+        --> Comments :- to describe the code 
+          single :- // 
+          multiple :- /*  */
+          html :- <!-- -->
+        --> How we render | print data in browser 
+          document.write("--");
+        --> Console :- used to diplay data in console , debug a data and all erros are shown in the console.
+          console.log("--")
+*** Everything in Javascript is an object . all the properies are the part of window object 
+
+--> In every browser their is a Javascript engine which execute the Javascript code and give us output 
+  -> Chrome :- V8 
+  -> Firefox :- Spider Monkey 
+  -> Ie | Safari :- chakra 

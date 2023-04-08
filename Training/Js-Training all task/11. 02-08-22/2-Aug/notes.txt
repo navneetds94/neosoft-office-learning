@@ -1,0 +1,90 @@
+-> Callback :- It is a function which is to be executed after another function has finished execution or we can pass a function as a parameter.We can handler asynchronous opertions.
+ Javascript is a event-driven language , it doesnt wait for a function to finish its execution before moving to the next one.Callbacks make it possible to make a function execute only after another function has finished executing.
+
+    function abc(message,callback){
+        console.log("Running function first with message : "+message)
+         if(typeof callback == "function"){
+           callback();
+         }
+    }
+    function xyz(){
+        console.log("Running Callback Function");
+    }
+    abc("Sumit Joshi",xyz);
+    -> when we have a multiple callback , it is hardly to manage , and this problem is known as callback hell. To resolve this problem es6 introduce promises.
+  --> Promises :- It is an object used to handle asynchronous operations.
+    -> Promises have 3 states 
+       -> Pending 
+       -> Fulfilled 
+       -> Rejected 
+         -> In a beginning, the state of a promise is pending,It indicates that the asynchronous operations is in progress.Depending on the result of the operation , the state is either Fulfilled or Rejected.
+      **** Promise return only 1 value at a time and it is not cancelable. 
+    -> How we create promise in Javascript 
+       const promise=new Promise((resolve,reject)=>{
+         setTimeout(()=>{
+              let age=23;
+           if(age>=18){
+             resolve("Elligible")
+           }
+           else {
+            reject("Not Elligible")
+           }
+         },2000)
+       })
+       -> consuming promise 
+         -> then() :- fulfilled 
+         -> catch() : rejected 
+         promise.then(res=>{
+            console.log(res)
+         })
+         .catch(err=>{
+            console.log(err)
+         })
+-> Promise Chaining:- when we want to execute 2 or more related asynchronous operations , where the next operation starts with the result from the previous step. This type of requirement is fulfilled with the help of chaining.
+eg:
+  let p=new Promise((resolve,reject)=>{
+      setTimeout(()=>{
+         resolve(100)
+      },3000)
+  })
+  p.then(res=>{
+     console.log(res);
+     return res*3;
+  })
+   .then(res=>{
+      console.log(res);
+     return res*4;
+   })
+    .then(res=>{
+      console.log(res);
+     
+   })
+-> fetch() Method :- It is a inbuild method and used to request to the server and load the information on the web pages.(it is used to call backend APIs),return promise
+  -> with the help of it we can call get , post , put , delete apis.
+
+  eg:
+    const APIURL="---";
+    fetch(APIURL)
+    .then(res=> res.json())
+    .then(data=> console.log(res))
+    .catch(err=> console.log(err))
+  -> Fake APIs 
+  https://jsonplaceholder.typicode.com/
+
+  --> json server :- It provide a server and give us all rest apis in behalf of json file.
+    -> download and install node js 
+    -> open cmd 
+     npm install json-server --g 
+      server 
+        mydata.json 
+        {
+    "data":[
+        {"id":1,"name":"A","age":23,"city":"noida"}
+        ]
+      } 
+      -> How we run json server 
+       json-server --watch mydata.json --port 3001 
+
+        http://localhost:3001/data
+        -> to test api 
+           postman 

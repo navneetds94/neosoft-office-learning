@@ -1,0 +1,20 @@
+-> Closures :- It is the combination of a function enclosed together with references to its surrounding state (lexical environment).It means that It give us to access to an outer function scope from an inner function.In javascript, closures are created every time a function is created .
+
+  function xyz(){
+      var name="sumit";
+    function abc(){
+       console.log(name)
+    }
+    abc();
+  }
+
+  eg:
+  function Outer(){
+      count=1;
+    function Inner() // closure 
+    {
+       count++;
+       return count;
+    }
+    return Inner;
+  }

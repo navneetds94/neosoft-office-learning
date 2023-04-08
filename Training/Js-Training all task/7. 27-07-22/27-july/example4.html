@@ -1,0 +1,25 @@
+<!Doctype html>
+<html>
+
+<body>
+    <h2> Closures Example 2</h2>
+   
+    <script>
+      var x=10;
+      function foo(a){
+         var b=20;
+          function bar(c){
+             var d=30;
+             return boop(x+a+b+c+d);
+          }
+         function boop(e){
+            return e*-1;
+         }
+         return bar;
+      }
+      var moar=foo(5);//closure 
+      console.log(moar(15))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!Doctype html>
+<html>
+
+<body>
+    <h2> Closures</h2>
+    <script>
+        function Outer() {
+            count = 1;
+            console.log(count)
+            function Inner() // closure 
+            {
+                count++;
+                return count;
+            }
+            return Inner;
+        }
+        let counter=Outer();
+        console.log(counter())//2
+        console.log(counter())//3
+        console.log(counter())//4
+        console.log(counter())//5
+        console.log(counter())//6
+    </script>
+</body>
+
+</html>

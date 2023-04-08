@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2> Array example</h2>
+        <script>
+             let arr=[23,4,56,7,8,1];
+             let sum=0;
+             let lar=arr[0];
+             arr.forEach(function(val){
+                console.log(val);
+                sum+=val;
+                if(lar<val){
+                    lar=val;
+                }
+             })
+             console.log(`The sum is ${sum} and largest id ${lar}`)
+        </script>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<!Doctype html>
+<html>
+    <body>
+        <h2> Callback Examples</h2>
+        <script>
+            function abc(message,callback){
+        console.log("Running function first with message : "+message)
+         if(typeof callback == "function"){
+           callback();
+         }
+    }
+    function xyz(){
+        console.log("Running Callback Function");
+    }
+    abc("Sumit Joshi",xyz);
+        </script>
+    </body>
+</html>

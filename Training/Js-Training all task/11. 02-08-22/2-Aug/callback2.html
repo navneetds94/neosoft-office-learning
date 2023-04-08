@@ -1,0 +1,33 @@
+<!Doctype html>
+<html>
+    <body>
+        <h2> Callback Real Time Examples</h2>
+        <script>
+           function getUser(userId,callback){
+              setTimeout(()=>{
+                  callback({
+                     name:"anuj",
+                     userId:userId
+                  })
+              },2000)
+           }
+           function getServices(user,callback){
+            setTimeout(()=>{
+                callback(["A","B","C","D"])
+            },3000)
+           }
+           function getServiceCost(services,callback){
+            setTimeout(()=>{
+                callback(services.length*200)
+            },4000)
+           }
+            getUser(101,(user)=>{
+                getServices(user,(services)=>{
+                    getServiceCost(services,(cost)=>{
+                        console.log("The cost of service is "+cost);
+                    })
+                })
+            })
+        </script>
+    </body>
+</html>

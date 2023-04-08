@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2> Ser</h2>
+        <script>
+              let myset=new Set();
+              myset.add(1);
+              myset.add(2);
+              myset.add('xyz')
+              myset.add({a:1,b:1})
+              myset.add(1);//not added
+              myset.delete(2)
+              console.log(myset.has(1))
+            //   for(const item of myset){
+            //     console.log(item)
+            //   }
+            //   for(const [key,value] of myset.entries()){
+            //     console.log(key)
+            //   }
+              myset.forEach((val)=>{
+                console.log(val)
+              })
+        </script>
+    </body>
+</html>

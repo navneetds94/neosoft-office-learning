@@ -1,0 +1,33 @@
+<!Doctype html>
+<html>
+
+<body>
+    <h2> Closures Example 2</h2>
+   
+    <script>
+       let rentPrice=function(initialRent){
+         var rent=initialRent;
+         return {
+             getRent:function(){
+                return console.log(rent)
+             },
+             incRent :function(amount){
+                 rent+=amount;
+                 console.log(rent)
+             },
+             decRent :function(amount){
+                 rent-=amount;
+                 console.log(rent)
+             }
+         }
+       }
+       var Rent=rentPrice(10000); 
+       Rent.incRent(3000);
+       Rent.incRent(5000);
+       Rent.decRent(2000);
+       Rent.getRent();
+
+    </script>
+</body>
+
+</html>
