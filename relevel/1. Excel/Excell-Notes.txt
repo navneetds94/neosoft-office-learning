@@ -1,0 +1,866 @@
+1.) Cell Refrences
+=> All rectangular boxes in excell knows as cell
+
+. => Every cell has its own address, the cell address is use to where to look value
+. => In starting alphabet is column and number is row 
+
+Ex.
+A10 -> it's meaning is that this cells belongs to A Th column and 10 row
+A10,A20 -> cell A10 and cell A20
+A10:A20 -> the range of cell from column A's 10 row to column A's 20 row
+B15:E15 -> the range of cell from column B's 15 row to column E's 15 row
+
+
+we can also use cell reference in other cell by using this
+
+=A10
+
+Cell Refrence are two type :-
+1.) Relative Reference -> if i gave some number in A10 = 20 then want to use this value in other cell of A10 suppose in B16
+
+then i can add just refrence address of A10 in B16 then A10 value is shown
+
+this value will change if i change value in A10 suppose i give A10  10 30 then B16 value is also change according to A10
+
+2.) Absolute Reference
+
+we can use this for some operation that based on some fixed column value
+
+for example : discount percent , add some string after category , et
+
+$ => is use for this
+
+we can use Alt + F4 to use fixed column 
+
+
+Excel Example
+
+Discount	5	$$
+
+SNO	Product	Price	        Discount     Value	  New Price	After Event     Sting		
+1	Noodles	                100	       20	  80	        180		$$-Noodles
+2	Vada Pav	        15	       3	  12	        27		$$-Vada Pav
+3	Dosa	                80	       16	  64	        144		$$-Dosa
+4	Chole Bhature	        160	       32	  128	        288		$$-Chole Bhature
+5	Grilled Sandvich        120	       24	  96	        216		$$-Grilled Sandvich
+6	Halwa	                13	       2.6	  10.4	        23.4		$$-Halwa
+
+
+Formula used for Discount column and for remaing draging to bottom till halwa data :-
+=G4/$J$1
+
+Formula use for New Price column and for remaing draging to bottom till halwa data :-
+=G4-H4
+
+Formula use for After Event column and for remaing draging to bottom till halwa data :-
+=G4+I4
+
+Formula use for String column and for remaing draging to bottom till halwa data :-
+=CONCATENATE($K$1,"-",F4)
+
+
+Shortcuts in Excel
+
+ctrl + g => GoTo
+ctrl + H => Replace
+ctrl + k => Insert Hyperlink
+ctrl + r => fill right
+ctrl + w => close
+ctrl + d => fill down
+ctrl + : => Insert current time
+ctrl + ; => Insert current date
+ctrl + " => copy value from cell above
+ctrl + ' => copy formula from cell above
+shift + f11 => new worksheet
+ctrl + page down => next worksheet
+ctr + page up => previous worksheet
+ctrl + down => got to the last cell of the dataset in the same column
+ctrl + up => got to the first cell of the dataset in the same column
+ctrl + home => go to the first cell of dataset
+ctrl + a => select entire worksheet
+ctrl + shift + down => select all data in a column from a specific cell to the end of the set
+ctrl + shift + up => select all data in a column from a specific cell to the begining of the set
+
+
+Basic Formulas in Excel:-
+A formula is a mathematical expression that operates on values in a set of cells.
+Even if the result is an error, these formulas return a result. Excel formulas allow you to perform addition, subtraction, multiplication, and division calculations.
+In addition to these, you can use Excel to find averages and percentages for a range of cells, manipulate date and time values, and much more.
+
+
+Functions are used to perform complex calculations that are difficult to achieve manually.
+
+
+Addition in Excel
+==============================
+Numbers	
+10	
+20	
+30	
+40	
+50	
+60	
+70	
+80	
+90	
+	
+by selecting val one by one	450      // => =A2+A3+A4+A5+A6+A7+A8+A9+A10 => this is a formula
+By sum formula	450                      // => =SUM(A2:A10)
+
+
+1.) SUM function
+Syntax => =SUM(Number1, Number2..)
+SUM
+The SUM() function, as the name suggests, gives the total of the selected range of cell values. It performs the mathematical operation which is addition. Here’s an example of it below:
+Sum with Range (Start Cell : End Cell)
+Sum with Shortcut – Alt + =
+Sum of a Range with Texts in some cells
+
+Running Total calculation excel 
+=SUM($A$2:A2)
+
+Numbers	Running Total
+10	10
+20	30
+30	60
+40	100
+50	150
+60	210
+70	280
+80	360
+90	450
+
+
+Running Multiplication calculation excel after that drag
+=IFERROR(B2*B1,B2)
+Numbers	Running Total	Running Multiplication
+10	10	        10
+20	30	        300
+30	60	        1800
+40	100	        6000
+50	150	        15000
+60	210	        31500
+70	280	        58800
+80	360	        100800
+90	450	        162000
+
+2.) SUM IF
+Syntact => =SUMIF(Range,Criteria,[Sum_Range])
+
+Class 	Subject	Section A	Section B	Section C	Exam Date	Exam Time	Total Marks	Sum IF
+11Th	Maths	60	        60	        60		                                180	        130
+	Sci	60	        60	        60			                        180	        110
+	Arts	60	        60	        60			                        180	        110
+	Comm.	60	        60	        60			                        180	        60
+9th	Hindi	20	        30	        40			                        90	        20
+	English	20	        30	        40			                        90	        20
+12th	Maths	50	        50	        50			                        150	        70
+	Sci	50	        50	        50			                        150	        50
+	Arts	50	        50	        50			                        150	        50
+10th	Maths	20	        20	        20			                        60	        20
+
+
+Total Marks Forumla Used
+=SUM(C10:E10)
+
+SumIF Formula Used
+=SUMIF(B10:B19,B10,C10:C19)
+
+
+Explaination
+=> range i choosed here of categories -> Maths , Sci , Arts , Comm Column means B column
+=> Criteria i choosed here of Maths from categories and for remaining one just draged it automatical takes -> Maths from B column
+=> sum_range i choosed here marks of all section a
+
+3.) AVERAGE
+
+Syntax-> =AVERAGE(Number1,number2,number3…)
+The AVERAGE() function focuses on calculating the average of the selected range
+
+Multiple Ways to Use Average-
+● Formula
+● Function
+● Sum & Count
+
+
+=AVERAGE(C10:C19)
+=SUM(C10:C19)/COUNT(C10:C19)
+
+4.) Count
+Syntax -> =COUNT(Number1,Number2…)
+The function COUNT() counts the total number of cells in a range that contains a number. It does not include the cell, which is blank, and the ones that hold data in any other format apart from numeric.
+
+Various Usage of Count functions are –
+Count with Numbers -> use count for that only counts that have number value not for categorical
+CountA -> use count for the numbers and category excluding blank data
+CountBlank -> this will return count of blank values.
+
+
+Class 	Subject	Section A	Section B	Section C	Exam Date	Exam Time
+11Th	Maths	60	        60	        60		
+	Sci	60	        60	        60		
+	Arts	60	        60	        60		
+	Comm.	60	        60	        60		
+9th	Hindi	20	        30	        40		
+	English	20	        30	        40		
+12th	Maths	50	        50	        50		
+	Sci	50	        50	        50		
+	Arts	50	        50	        50		
+10th	Maths	20	        20	        20		
+
+
+count (only works for number)	0	10
+Count Any	                10	
+Count Blank	                0	10
+
+
+
+this calculation is for => count (only works for number) =COUNT(B10:B19) , =COUNT(E10:E19)
+this calculation is for => count (Count Any) =COUNTA(E10:E19)
+this calculation is for => count (Count Blank) =COUNTBLANK(E10:E19) , =COUNTBLANK(G10:G19)
+
+
+----------------------------------------
+WRITE TILL THIS IN NOTEBOOK
+----------------------------------------
+
+5.) CountIf
+Syntax -> =COUNTIF(range, criteria) 
+This function is used to count cells in a range that meet a single condition. This function can be used to count cells that contain dates, numbers, and text
+
+Class 	Subject	Section A	Section B	Section C
+11Th	Maths	60	        60	        60
+	Sci	60	        60	        60
+	Arts	60	        60	        60
+	Comm.	60	        60	        60
+9th	Hindi	20	        30	        40
+	English	20	        30	        40
+12th	Maths	50	        50	        50
+	Sci	50	        50	        50
+	Arts	50	        50	        50
+10th	Maths	20	        20	        20
+
+Maths => =COUNTIF(B10:B19,B10)
+Scie => =COUNTIF(B10:B19,B11)
+Arts => =COUNTIF(B10:B19,B12)
+
+Class 	Subject	Section A	Section B	Section C	Exam Date	Exam Time	Total Marks
+11Th	Maths	60	        60	        60			                        180
+	Sci	60	        60	        60			                        180
+	Arts	60	        60	        60			                        180
+	Comm.	60	        60	        60			                        180
+9th	Hindi	20	        30	        40			                        90
+	English	20	        30	        40			                        90
+12th	Maths	50	        50	        50			                        150
+	Sci	50	        50	        50			                        150
+	Arts	50	        50	        50			                        150
+10th	Maths	20	        20	        20			                        60
+
+Total Marks > 100 => =COUNTIF(H10:H19,">100") => 7
+
+6.) CountIfs
+
+
+Class 	Subject	Section A	Section B	Section C	Exam Date	Exam Time	Total Marks
+11Th	Maths	60	        60	        60			                        180
+	Sci	60	        60	        60			                        180
+	Arts	60	        60	        60			                        180
+	Comm.	60	        60	        60			                        180
+9th	Hindi	20	        30	        40			                        90
+	English	20	        30	        40			                        90
+12th	Maths	50	        50	        50			                        150
+	Sci	50	        50	        50			                        150
+	Arts	50	        50	        50			                        150
+10th	Maths	20	        20	        20			                        60
+
+Maths Marks > 50
+=COUNTIFS(B10:B19,B10,C10:C19,">=50") => 2
+
+7.) SubTotal
+Syntax-> =SUBTOTAL(Function num, ref1, ref2..)
+The SUBTOTAL() function returns the subtotal in a database. Depending on what you want, you can select either average, count, sum, min, max, min, and others. 
+
+SUBTOTAL Function Numbers :- 
+1 - Average
+2 - Count
+3 - COUNTA
+4 - MAX
+5 - MIN
+7 - STDEV
+9 - SUM
+10 - VAR
+
+Class 	Subject	Section A	Section B	Section C	Exam Date	Exam Time	Total Marks
+11Th	Maths	60	        60	        60			                        180
+	Sci	60	        60	        60			                        180
+	Arts	60	        60	        60			                        180
+	Comm.	60	        60	        60			                        180
+9th	Hindi	20	        30	        40			                        90
+	English	20	        30	        40			                        90
+12th	Maths	50	        50	        50			                        150
+	Sci	50	        50	        50			                        150
+	Arts	50	        50	        50			                        150
+10th	Maths	20	        20	        20                                              60
+                                               ---------
+						490
+                                                10
+
+. in this 490 come through subtotal function
+=SUBTOTAL(9,E10:E19) // 9=> sum function number , E10:E19 belongs to cell reference of sum range
+=SUBTOTAL(2,E10:E19) // 2=> count function number , """"
+
+remainging 1 is just replacement of parameters
+
+8.) Modulus / Mod()
+
+The MOD() function returns the remainder when a particular number is divided by a divisor.
+
+=> 4 divide by 2 reminder is 2 same mod / modulus function do
+
+=MOD(10,4) => 2
+
+
+9.) SUMPRODUCTS
+
+Example 1
+num1	num2		Manual Sum Product	By Formulla
+2	6		12	
+3	7		21	
+4	8		32	
+5	9		45
+                       -----------------	-------------------
+			110	                110
+----  
+14 => =SUMPRODUCT(K27:K30)
+
+Manual Way 
+2*6 =>12
+3*7 =>21
+4*8 =>32
+5*9 =>45
+
+12+21+32+45 = 110
+
+By Formulla
+=SUMPRODUCT(K27:K30,L27:L30) = 110
+
+if we give only single array then it will just do normal plus
+
+
+example 3
+
+num1	num2	num3	Manual Sum Product	By Formula
+1	10	100	1000	
+2	20	200	8000	
+3	30	300	27000	
+4	40	400	64000
+                        ------------------	-------------------
+			100000	                100000
+
+explaination is same just given n number of arrays will treat same
+
+
+example 4
+
+  num1	  num2
+| 1	| 10
+| 2	|
+| 3	| 30
+| 4	| 40
+| 5	  60
+	
+	
+	#VALUE!
+
+This will give and error because need to select array of same size
+
+10) Power
+
+Syntax-> =POWER(Number, Power)
+The "Power()" function returns the result of a number raised to a specific power. 
+
+Number	Power	Power Function
+3	3	27     =POWER(B75,C75)
+4	3	64     '''
+4	2	16     '''
+4	2	16     '''
+5	5	3125   '''
+5	3	125    '''
+
+
+=POWER(2,3) = 8
+
+11) Ceiling
+Syntax-> =CEILING(Number, Significance)
+
+The CEILING() function rounds a number up to its nearest multiple of significance. 
+
+Number	Significance	CEILING Function
+13	3	        15  =CEILING(13,3)
+20	3	        21  =CEILING(20,3)
+11	2	        12  '''
+23	2	        24  '''
+29	4	        32  '''
+25	3	        27  '''
+
+12.) Floor
+Syntax-> =FLOOR(Number, Significance)
+
+it is opposite of ceiling function. the floor function rounds a number down to the nearest multiple of significance
+
+Number	Significance	FLOOR Function
+13	3	        12 =FLOOR(13,3)
+20	3	        18 =FLOOR(20,3)
+11	2		10 '''
+23	2		22 '''
+29	4		28 '''
+25	3		24 '''
+
+
+13. Concatenate
+Syntax-> =CONCATENATE(Text1, Text2)
+This function merges or joins several text strings into one text string.
+
+Number 1	Number 2	CONCAT				Text 1		Text 2	Concat
+5		6		56   =CONCATENATE(5,6)		A		B	AB               =CONCATENATE(A,B)
+9		1		91   =CONCATENATE(9,1)		AB		CD	ABCD             =CONCATENATE(AB,CD)
+4		8		48   '''			D		r	D  r             '''
+1		89		189  '''			A C		D. C	A CD. C          '''
+9		1		91   '''			A+D+C		D-E-F	A+D+CD-E-F       '''
+4		2		42   '''			11_AA_33	dd_ss	11_AA_33dd_ss    '''
+
+
+14.) RANDBETWEEN
+Syntax-> =RANDBETWEEN(bottom,top)
+
+Randbeetween is use to generate number between a range
+=RANDBETWEEN(3,5)
+
+15.) Len
+Syntax-> =LEN(Text)
+The function LEN() returns the total number of characters in a string.
+
+
+
+Text 1		Text 2		Concat		Length
+A		B		AB		2 =LEN(AB)
+AB		CD		ABCD		4 =LEN(ABCD)
+D	  	r		D  r		4 '''
+A C		D. C		A CD. C		7 '''
+A+D+C		D-E-F		A+D+CD-E-F	10 '''
+11_AA_33	dd_ss		11_AA_33dd_ss	13 '''
+
+
+16.) REPLACE
+Syntax-> REPLACE(old_text, start_num, num_chars, new_text)
+the REPLACE() function works on replacing the part of a text string with a different text string. 
+Here, start_num refers to the index position you want to start replacing the characters with. Next, num_chars indicate the number of characters you want to replace. 
+
+REPLACE		
+TEXT 1		TEXT 2		RESULT
+SACHIN		
+SACHIN		TENDULKAR	SACHIN TENDULKAR // =REPLACE(B120,7,1,CONCATENATE(" ",C121))
+		
+
+=REPLACE(CONCATENATE(B121," ",C121),7,1,C120)
+
+=REPLACE(B127,1,7,C127)
+
+17.) SUBSTITUTE
+Syntax-> =SUBSTITUTE(text, old_text, new_text, [instance_num])
+The SUBSTITUTE() function replaces the existing text with a new text in a text string. 
+
+Here, [instance_num] refers to the index position of the present texts more than once. 
+
+TEXT 1		TEXT 2		RESULT
+GANGULY SEHWAG	SACHIN		
+GANGULY				SACHIN SEHWAG
+
+=> =SUBSTITUTE(B127,B128,C127)
+=SUBSTITUTE("GANGULLY SEHWAG","GANGULLY","SACHIN")
+
+
+
+TEXT 1			TEXT 2		RESULT
+GANGULY SEHWAG GANGULY	SACHIN		
+GANGULY					SACHIN SEHWAG GANGULY
+=SUBSTITUTE(B127,B128,C127,1)
+=SUBSTITUTE("GANGULLY SEHWAG GANGULY","GANGULLY","SACHIN",1)
+
+18.) LEFT, RIGHT, MID
+Syntax
+= LEFT(text, [num_chars])
+=RIGHT(text,[num_chars])
+=MID(text, start_num, num_chars)
+
+These functions is use for slicing of the string
+
+The LEFT() function returns the number of characters left from the beginning of a text string till number of character choosed.
+The LEFT() function returns the number of characters right from the end of a text string till number of character choosed.
+The mid function returns the number of characters from mid means start from then and position to end char string example if  give 2 , 3 it means start from 2 and give 3 char after that
+
+
+LEFT RIGHT MID			
+TEXT	LEFT	RIGHT	MID
+SACHIN	SAC	HIN	ACH
+
+=LEFT(B135,3)
+=RIGHT(B135,3)
+=MID(B135,2,3)
+
+19.) UPPER, LOWER, PROPER
+Syntax
+=UPPER(text)
+=LOWER(text)
+=PROPER(text)
+
+the UPPER () function, any text string can be converted to uppercase using the UPPER() function
+
+The LOWER() function, on the other hand, converts any text string to lowercase. 
+
+The PROPER() function converts any text string to proper case, which means that the first letter in each word is in uppercase and the rest are in lowercase.
+
+			
+TEXT			UPPER			LOWER			PROPER
+SACHIN tendulkar	SACHIN TENDULKAR	sachin tendulkar	Sachin Tendulkar
+
+=UPPER(B142)  => SACHIN TENDULKAR
+=LOWER(B142)  => sachin tendulkar
+=PROPER(B142) => Sachin Tendulkar
+
+
+20.) NOW()
+The NOW() function in Excel gives the current system date and time.
+
+=NOW() // 01-04-23 0:34
+
+
+21.) TODAY()
+The TODAY() function in Excel provides the current system date.
+=TODAY() // 01-04-23
+
+
+22.) DAY()
+The function DAY() is used to return the day of the month. It will be a number between 1 to 31. 1 is the first day of the month, 31 is the last day of the month.
+=DAY("01-04-23") // 1
+
+23.) MONTH()
+The MONTH() function returns the month, a number from 1 to 12, where 1 is January and 12 is
+December.
+=MONTH("01-04-23") // 4
+
+24.) YEAR()
+The YEAR() function, as the name suggests, returns the year from a date value
+=YEAR("01-04-23") // 2023
+
+25.) TIME()
+The TIME() function converts numbers representing hours, minutes, and seconds to an Excel serial number formatted with a time format.
+=TIME(10,15,44) // 10:15 AM
+
+26.) HOUR, MINUTE, SECOND
+
+The HOUR() function returns the hour as a number ranging from 0 to 23 from a time value. In this context, 0 denotes 12 a.m. and 23 denotes 11 p.m.
+MINUTE() returns the minute from a time value as a number ranging from 0 to 59.
+The SECOND() function returns the second as a number ranging from 0 to 59 from a time value.
+
+
+Hour	10 // =HOUR(E11)
+Minute	15 // =MINUTE(E11)
+Seconds	44 // =SECOND(E11)
+
+
+
+## CONDITIONAL FORMATTING
+Use conditional formatting to explore and analyse data visually, detect critical issues, and identify patterns and trends.
+Conditional formatting allows you to easily highlight interesting cells or ranges of cells, highlight unusual values, and visualise data
+by using data bars, colour scales, and icon sets that correspond to specific variations in the data.
+
+The appearance of cells in a conditional format is determined by the conditions you specify. If the conditions are met, the cell
+range is formatted; otherwise, the cell range is not formatted. There are many pre-existing conditions, and you can also add your
+own (including by using a formula that evaluates to True or False).
+
+
+
+Higher val means higher color and lower means means light color
+
+
+1.) Greater Than conditional formating
+
+Step 1 -> Select Data column
+Step 2 -> Click on conditional formating in home ribbon
+Step 3 -> Choose Highlights Rules
+Step 4 -> Click Greater Than
+Step 5 -> Enter number that should greater than this and choose color code for that
+
+> 55 with green fills
+
+2.) Less Than conditional formating
+
+Step 1 -> Select Data column
+Step 2 -> Click on conditional formating in home ribbon
+Step 3 -> Choose Highlights Rules
+Step 4 -> Click Less Than
+Step 5 -> Enter number that should less than this and choose color code for that
+
+< 40 with red fills
+
+3.) Between conditional formating
+
+Step 1 -> Select Data column
+Step 2 -> Click on conditional formating in home ribbon
+Step 3 -> Choose Highlights Rules
+Step 4 -> Click Beetween
+Step 5 -> Enter bootom number and top number for between range and choose color code for that
+
+20 to 40 with yellow fills
+
+4.) Text That Contain
+
+Step 1 -> Select Data column
+Step 2 -> Click on conditional formating in home ribbon
+Step 3 -> Choose Highlights Rules
+Step 4 -> Click Text that contains
+Step 5 -> Enter text to be highlight and choose color code for that
+
+=> Mon
+
+5.) A Date Occuring
+
+Step 1 -> Select Data column
+Step 2 -> Click on conditional formating in home ribbon
+Step 3 -> Choose Highlights Rules
+Step 4 -> Click A Date Occuring
+Step 5 -> choose time period to be highlight and choose color code for that
+
+time perios have these options :-
+
+Yesterday
+Today
+Tommorow
+In The last 7 Days
+.....
+
+
+6.) Duplicate Values
+
+Step 1 -> Select Data column
+Step 2 -> Click on conditional formating in home ribbon
+Step 3 -> Choose Highlights Rules
+Step 4 -> Click Duplicate Values
+Step 5 -> choose the otion to be highlight and choose color code for that
+
+options => unique , duplicate
+
+
+7.) Top N Items
+Step 1 -> Select Data column
+Step 2 -> Click on conditional formating in home ribbon
+Step 3 -> Choose Top / Bottom Rules
+Step 4 -> Click Top 10 items
+Step 5 -> choose the number to be highlight and choose color code for that
+
+
+7.) Botton N Items
+Step 1 -> Select Data column
+Step 2 -> Click on conditional formating in home ribbon
+Step 3 -> Choose Top / Bottom Rules
+Step 4 -> Click Bootom 10 items
+Step 5 -> choose the number to be highlight and choose color code for that
+
+8.) Bottom 10%
+
+Step 1 -> Select Data column
+Step 2 -> Click on conditional formating in home ribbon
+Step 3 -> Choose Top / Bottom Rules
+Step 4 -> Click Bootom 10%
+Step 5 -> choose the number to be highlight and choose color code for that
+
+
+
+remaining one i can use easily
+so dont need to note for that
+
+
+
+##   Consolidate
+Consolidation is transferring data from multiple worksheets or locations to a single site. You
+can merge data from each sheet into a master worksheet to summarize and report individual
+worksheets' results. The sheets can be in the same workbook as the master worksheet or in
+other workbooks. When you consolidate data, you gather it to update and aggregate it as
+needed simply.
+
+Consolidation can be performed in 3 ways depending upon the need 
+Static All Same
+Linked All Same
+
+We can do this by just
+
+use function then click on cell after that press shift and click on workbook there you want to last consilidate after that click enter
+
+-------------------------------------------------------------------------------------
+
+consolidate in data option also we can consolidate steps given below
+
+Step 1 -> Go to Data Ribbon
+Step 2 -> In that click on Consolidate 
+Step 3 -> Popup come 
+
+in 1st option gives the function to use
+Reference is choosing sheets to consolidat
+
+step 4 click on reference redish button for choose in same workbook to search
+
+click on sheet name you want to consolidate
+
+select the cell drag till you want to select and then hit enter
+
+click on add button 
+
+and repeat the sheet step untill you want to stop
+
+
+These value is not change if we change number in real cell but with 1st method data will change
+
+## VLOOKUP
+
+The VLOOKUP
+(Vertical Lookup) function looks for a value in the table's leftmost column and returns a value from another column you specify in the same row.
+
+When you need to find something in a table or a range by row, use VLOOKUP. For
+example, you may check for the pricing of an automobile part by its part number, or
+you can find an employee's name by their employee ID
+
+vlookup(lookup value, table array, col index num, [range lookup]) is the syntax.
+
+
+=VLOOKUP (What you want to
+look up, where you want to look for it, the column number in the range containing
+the value to return, return an Approximate or Exact match – represented as 1/TRUE,
+or 0/FALSE).
+
+
+
+Simple VLOOKUP				
+Product		Product Code		Quantity	Price		Total
+Mobile		ABA - 133339		904		99.38		89,835.94
+Camera		BVD - 367987		451		574.25		258,985.69
+Watch		RFG -301565		863		59.86		51,659.99
+Perfume		ESF - 326794		336		42.93		14,425.77
+Wall Clock	EEE - 300402		257		7.19		1,846.88
+Guitar		WER - 9695		366		65.15		23,843.61
+Drum		EWR - 228431		161		80.18		12,908.50
+
+
+PRODUCT	camera
+PRICE	574.25
+QUANTITY	451
+
+
+# Finding Camera Price
+=ROUND(VLOOKUP(H2,A2:E9,4,FALSE),2)
+=ROUND(VLOOKUP("Camera",A2:E9,4,FALSE),2)
+
+# Finding Camera Quantity
+=VLOOKUP(H2,A2:E9,3,FALSE)
+=VLOOKUP("Camera",A2:E9,3,FALSE)
+
+
+######## VLOOKUP with Trim Function
+
+In general, the VLOOKUP function can lookup a value and return the matched value. However, if there
+are extra spaces in cells, such as leading or trailing spaces, the formula will return an error value #N/A
+even if a value is matched, as shown in the screenshot below. This guide includes some tips for doing
+this task.
+In this scenario, you can use the VLOOKUP and TRIM functions together to look up a value while
+ignoring unnecessary spaces.
+
+Syntax: vlookup(lookup_value, TRIM(table_array), col_index_num, [range_lookup])
+
+after applying formulla you just need to do shift+ctrl+enter in formulla bar
+
+
+##### VLOOKUP with DATA VALIDATION
+
+Data validation in Excel is a function that allows you to control the type of data that is entered into your worksheet. Excel data
+validation, for example, will enable you to limit data entries to a dropdown list selection and restrict specific data entries, such as
+dates or numbers, outside of a predetermined range.
+Sometimes to give more control in the Sheet or a Report, we use Data Validation or dropdown with Vlookup.
+
+Adding Dropdown of selection value by these step
+Step 1 => go in data ribbon
+click data validation
+click on drop arrow and choose data validation
+click settings
+then under allow choose list
+then in formula click extract box
+drag values from wanted column
+then enter
+
+
+#### Match
+MATCH is an Excel function used to find the location of a lookup value in a row, column, or table. MATCH allows for approximate
+and accurate matching and wildcards (*?) for partial matches. MATCH is frequently used in conjunction with the INDEX function to
+obtain a value at a matched place.
+
+
+#### Match with Index
+INDEX function with MATCH - INDEX is a function that returns a value corresponding to the row number entered in SYNTAX
+=INDEX (array, row_num, [col_num], [area_num]) 
+
+=INDEX(A41:A48,I42,1)
+
+
+
+#### HLOOKUP
+
+The HLOOKUP function in Microsoft Excel conducts a horizontal lookup by searching for a value in the
+table's top row and returning the value in the same column depending on the index number.
+The HLOOKUP function is an Excel built-in function classified as a Lookup/Reference Function. It can be
+used in Excel as a worksheet function (WS). The HLOOKUP function is a worksheet function that can be
+used as part of a formula in a worksheet cell.
+Syntax
+SYNTAX: HLOOKUP( value, table, index_number, [approximate_match] )
+Parameters or Arguments
+Value - The value to search for in the first row of the table.
+Table - Two or more rows of data sorted in ascending order.
+index_number - The row number in the table from which the matching value must be returned. The first
+row is 1.
+approximate_match - Optional. To locate an exact match, enter FALSE. Enter TRUE to discover a close
+match. If this parameter is omitted, TRUE is the default.
+
+
+
+Product		Mobile		Camera		Watch		Perfume		Wall Clock	Guitar		Drum
+Product Code	ABA - 133339	BVD - 367987	RFG -301565	ESF - 326794	EEE - 300402	WER - 9695	EWR - 228431
+Quantity	904		451		863		336		257		366		161
+Price		99.38		574.25		59.86		42.93		7.19		65.15		80.18
+Total		89,835.94	258,985.69	51,659.99	14,425.77	1,846.88	23,843.61	12,908.50
+
+
+PRODUCT		Perfume
+PRICE		42.93
+QUANTITY	336
+
+=HLOOKUP(K53,A53:H57,4,FALSE)
+=HLOOKUP(K53,A53:H57,3,FALSE)
+
+
+######### 2-Way VLOOKUP				
+
+STUDENT	MATHS	ARTS	LANGUAGE	SPORTS
+Anil	78	75	78		19
+Ram	33	83	41		54
+Arun	11	52	93		20
+Aman	29	19	25		19
+Vinita	73	8	25		11
+Simba	65	90	87		16
+Chiku	78	36	33		43
+
+
+
+TRY AND CREATE BELOW SETUP FROM THE DATA
+	
+	LANGUAGE v
+Anil v	78
+
+=ROUND(VLOOKUP(G17,A15:E22,MATCH(H16,A15:E15,0),FALSE),0)
