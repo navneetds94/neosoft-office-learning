@@ -1,0 +1,22 @@
+console.log('Factorial of number from given range')
+
+start = 0
+end = 10
+num = 5;
+const factorial = num => {
+    fact = 1;
+    if (num == 0){
+        return fact = 1
+    }
+    else{
+        for (j=num;j>=1;j--){
+            fact=fact*j
+        }
+        return fact;
+    }
+}
+
+for(i=start;i<=end;i++){
+    const current_factorial = factorial(i);
+    console.log(`${i}! :-> ${current_factorial}`)
+}
