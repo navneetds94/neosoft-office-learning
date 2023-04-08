@@ -1,0 +1,4 @@
+.product_box img{
+    height: 265px;
+    object-fit: contain;
+}

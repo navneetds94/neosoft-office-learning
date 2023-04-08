@@ -1,0 +1,28 @@
+<section class="our-products pt-4">
+    <div class="container">
+        <h3 class="text-center mb-5">Our Product</h3>
+        <% if (prods.length) { %>
+        <div class="row pb-5">
+            <% for (let data of prods){ %>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card product_card">
+                    <img src="<%= data.image %>" alt="christmas tree" class="w-100" />
+                    <div class="p-4">
+                        <strong class="d-block mb-2"><%= data.name %></strong>
+                        <p class="mb-0"><%= data.desc %></p>
+                    </div>
+                </div>
+            </div>
+            <%}%>
+        </div>
+        <%} else {%>
+        <div class="alert alert-danger text-center mx-auto" role="alert" style="max-width: 300px;">
+            Product Not Found
+          </div>
+        <%}%>
+    </div>
+</section>
+
+<div class="add_more">
+    <a href="/" class="btnAddMore" data-toggle="modal"><i class="fa fa-plus"></i></a>
+</div>

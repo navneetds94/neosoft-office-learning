@@ -1,0 +1,28 @@
+/* global css */
+.no-bg {
+    background: transparent !important;
+}
+/* cusstom classes */
+.border-width-2-px{
+    border-width:  2px !important;
+}
+.black-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+    z-index: -1;
+}
+/* button css */
+.btn-addmore {
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+}
+
+/* form css */
+.form-control{
+    font-size: 12px;
+}

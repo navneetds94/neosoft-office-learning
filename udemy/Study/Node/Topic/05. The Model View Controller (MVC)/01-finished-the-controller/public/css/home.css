@@ -1,0 +1,25 @@
+/* home css start */
+.banner {
+    height: 100vh;
+    overflow: hidden;
+}
+.carousel {
+    height: 100%;
+}
+.slide_text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.2);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide_text h2 {
+    font-size: 46px;
+    color: #fff;
+    text-transform: uppercase;
+}
