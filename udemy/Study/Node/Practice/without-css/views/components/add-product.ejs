@@ -1,0 +1,27 @@
+<div>
+    <h1>Add Product</h1>
+    <form action="/admin/<% if(editing){%>update<%} else{%>submit<% }%>-product" method="POST">
+        <div>
+            <input type="text" placeholder="Name" name="name" <% if(editing){ %>value="<%=prod.name%>"<%}%> />
+        </div><br>
+        <div>
+            <input type="text" placeholder="Image" name="image" <% if(editing){ %>value="<%=prod.image%>"<%}%> />
+        </div><br>
+        <div>
+            <input type="text" placeholder="Price" name="price" <% if(editing){ %>value="<%=prod.price%>"<%}%> />
+        </div><br>
+        <div>
+            <textarea placeholder="Description" style="height: 150px;resize: vertical;max-height: 300px;min-height: 150px;" name="description"><% if(editing){%><%=prod.description%><%}%></textarea>
+        </div><br />
+        <div>
+
+            <button>
+                <% if(editing) {%>
+                Update
+                <% } else{%>
+                Submit
+                <% }%>
+            </button>
+        </div>
+    </form>
+</div>

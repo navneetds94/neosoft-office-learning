@@ -1,0 +1,24 @@
+<div>
+    <h1>Product List</h1>
+
+    <% if (prods.length > 0){%>
+        <% for (let i of prods){ %>
+            <article style="border: 1px dashed #000;padding: 20px;">
+                <img src="<%= i.image %>" alt="Dry Fruits"
+                    style="width: 200px" />
+                <h4>
+                    <%= i.name %>
+                </h4>
+                <p><%= i.description %></p>
+                <b>$<%= i.price %></b><br /><br />
+                <button><a href="/admin/edit-product/<%= i.id %>?edit=true">Edit Product</a></button>
+                <button>Delete Product</button>
+                <button><a href="/admin/product-detail/<%= i.id %>">View Detail</a></button>
+                <br />
+            </article>
+            <% } %>
+    <%} else{%>
+        <p>No Products added yet</p><br />
+            <button><a href="/admin/add-product">Add Product</a></button>
+    <%}%>
+</div>
