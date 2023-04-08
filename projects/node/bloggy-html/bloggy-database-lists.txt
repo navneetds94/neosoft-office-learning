@@ -1,0 +1,13 @@
+// Table related to bloggy database
+Users
+Blogs
+Reading
+liked
+follow
+author
+contacted
+reading
+categories
+muted
+history
+likes

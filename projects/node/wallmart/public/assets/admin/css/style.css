@@ -1,0 +1,29 @@
+.customizer-setting.add_more {
+  bottom: 85px;
+}
+
+.modal-dialog-scrollable .modal-body {
+  overflow-y: auto;
+  max-height: calc(100vh - 200px);
+}
+
+header#page-topbar {
+  box-shadow: 0px 0px 10px #ccc;
+  background: #fff;
+}
+
+.app-menu {
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.navbar-menu .navbar-brand-box {
+  height: 70px;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar-menu div#scrollbar {
+  height: auto !important;
+}/*# sourceMappingURL=style.css.map */

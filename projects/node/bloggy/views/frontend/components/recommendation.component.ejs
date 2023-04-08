@@ -1,0 +1,48 @@
+<ul class="nav nav-tabs category_tabs">
+    <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#following">Following</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#history">History</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#read_history">Reading History</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#muted">Muted</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="tab" href="#suggestions">Suggestions</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane container p-0 pt-4 fade" id="following">
+        <%- include('../partials/following.recommendation.ejs') %>
+        <div class="recommend_footer">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane container p-0 pt-4 fade" id="history">
+        <%- include('../partials/history.recommendation.ejs') %>
+        <div class="recommend_footer">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane container p-0 pt-4 fade" id="read_history">
+        <%- include('../partials/read-history.ejs') %>
+    </div>
+    <div class="tab-pane container p-0 pt-4 fade" id="muted">Muted</div>
+    <div class="tab-pane container p-0 pt-4 active" id="suggestions">
+        <%- include('../partials/suggestions.recommendation.ejs') %>
+        <div class="recommend_footer">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<style type="text/css">
+    .successfull {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+    }
+
+    .success-image {
+        width: 250px;
+        display: block;
+        margin: 0 auto 40px;
+    }
+
+    .username {
+        color: #d72924;
+        display: block;
+        margin-bottom: 13px;
+    }
+
+    .successfull h1 {
+        font-size: 30px;
+    }
+</style>
+<section class="successfull">
+    <div class="container">
+        <% for(let data of user){ %>
+        <img src="/front/img/success.png" alt="success image" class="success-image" />
+        <span class="username">Hello, <%=data.name%></span>
+        <h1>Thank you for Your Signing Up</h1>
+        <a href="/login" class="btn btn-primary mt-4">Login Now</a>
+        <%}%>
+    </div>
+</section>

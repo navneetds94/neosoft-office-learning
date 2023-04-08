@@ -1,0 +1,55 @@
+<!-- Start Signup Area -->
+<section class="signup-area">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="signup-form">
+                <h3>Please Sign Up</h3>
+
+                <!-- <div class="row">
+                    <div class="col-lg-4">
+                        <a href="#" class="facebook">Facebook</a>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <a href="#" class="google">Google</a>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <a href="#" class="twitter">Twitter</a>
+                    </div>
+                </div>
+
+                <div class="login-or">
+                    <hr>
+                    <span>or</span>
+                </div> -->
+
+                <form action="/submit-user" method="POST">
+                    <div class="form-group">
+                        <label for="username"><i class="icofont-ui-user"></i></label>
+                        <input type="text" class="form-control" placeholder="Username" name="username" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name"><i class="icofont-ui-user"></i></label>
+                        <input type="text" class="form-control" placeholder="Name" name="name" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username"><i class="icofont-envelope"></i></label>
+                        <input type="text" class="form-control" placeholder="Email" name="email" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password"><i class="icofont-lock"></i></label>
+                        <input type="password" class="form-control" placeholder="Password" name="pwd">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
+                <p class="mt-3">Already have account? <a href="/login" class="d-inline-block">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Signup Area -->

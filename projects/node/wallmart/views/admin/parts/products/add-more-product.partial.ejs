@@ -1,0 +1,98 @@
+<div class="customizer-setting add_more d-none d-md-block" data-bs-toggle="modal"
+    data-bs-target="#addProductModalScrollable">
+    <div class="btn-primary btn-rounded shadow-lg btn btn-icon btn-lg p-2">
+        <i class="ri-add-line fs-22"></i>
+    </div>
+</div>
+
+<div class="modal fade" id="addProductModalScrollable" tabindex="-1" aria-labelledby="exampleModalScrollableTitle"
+    aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Product</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <form action="javascript:void(0);">
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-xxl-6">
+                            <div>
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                            </div>
+                        </div>
+                        <!--end col-->
+                        <div class="col-xxl-6">
+                            <div>
+                                <label class="form-label">Category</label>
+                                <select class="form-select">
+                                    <option selected="">Select Category</option>
+                                    <option value="1">Declined Payment</option>
+                                    <option value="2">Delivery Error</option>
+                                    <option value="3">Wrong Amount</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--end col-->
+                        <div class="col-xxl-6">
+                            <label class="form-label">Image</label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input img-radio" type="radio" name="image"
+                                        id="urlRdo" value="url">
+                                    <label class="form-check-label" for="urlRdo">URL</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input img-radio" type="radio" name="image"
+                                        id="uploadRdo" value="upload">
+                                    <label class="form-check-label" for="uploadRdo">Upload</label>
+                                </div>
+                            </div>
+                            <div class="image_inputs" style="display: none;">
+                                <div class="col-xxl-12 mt-2 image_input url_input" style="display: none;">
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon1">URL</span>
+                                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-12 mt-2 image_input upload_input" style="display: none;">
+                                    <input class="form-control" type="file" id="formFile">
+                                </div>
+                            </div>
+                        </div>
+                        <!--end col-->
+                        <div class="col-xxl-6">
+                            <div>
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="description" placeholder="Enter Description"></textarea>
+                            </div>
+                        </div>
+                        <!--end col-->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+<script>
+    $('.img-radio').on("change",function(){
+        $('.image_inputs').css({'display':'block'})
+        const image_choosed = $(this).val();
+        if(image_choosed == 'url'){
+            $('.image_input').css({'display':'none'})
+            $('.url_input').css({'display':'block'})
+        }
+        else{
+            $('.image_input').css({'display':'none'})
+            $('.upload_input').css({'display':'block'})
+        }
+    })
+</script>

@@ -1,0 +1,256 @@
+<style>
+    .category_tabs a {
+        background: transparent !important;
+        border: 0 !important;
+        text-transform: uppercase;
+        color: #333;
+        padding: 15px 15px;
+        font-weight: 600;
+        position: relative;
+    }
+
+    .category_tabs a:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-top: 4px solid transparent;
+    }
+
+    .category_tabs a:hover,
+    .category_tabs a.active {
+        color: #d72924 !important;
+    }
+
+    .category_tabs a.active:after {
+        border-color: #d72924 !important;
+    }
+
+    .plus {
+        font-size: 20px !important;
+        padding: 11px 15px !important;
+    }
+
+    .modal-dialog.full_width_modal {
+        width: 90%;
+        max-width: 1323px;
+    }
+
+    .modal-dialog.full_width_modal .modal-body {
+        max-height: calc(100vh - 121px);
+        overflow: hidden;
+        overflow-y: auto;
+    }
+
+    .recommend_footer {
+        background: #efefef;
+        margin: 40px -36px -16px;
+    }
+
+    /* oval-checkbox */
+    .follow_box {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-right: calc(100px + 30px);
+    }
+
+    .follow_box .oval_checkbox {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+    }
+
+    .oval_checkbox input {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .oval_checkbox span {
+        border: 1px solid #d72924;
+        color: #d72924;
+        display: inline-block;
+        padding: 4px 15px;
+        border-radius: 20px;
+        min-width: 87px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .oval_checkbox input[type="checkbox"]:checked~span,
+    .oval_checkbox:hover span {
+        background: #d72924;
+        color: #fff;
+    }
+
+
+    .round-square-checkbox {
+        position: relative;
+    }
+
+    .round-square-checkbox input {
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .round-square-checkbox span {
+        display: inline-block;
+        padding: 7px 15px;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        position: relative;
+    }
+
+
+    .round-square-checkbox input[type="checkbox"]:checked~span {
+        background: #d72924;
+        color: #fff;
+        border-color: #d72924;
+    }
+
+    .signed_label input[type="checkbox"]:checked~span {
+        background-color: transparent;
+        color: inherit;
+        border-color: #eee;
+    }
+
+
+    .signed_label input[type="checkbox"]:checked~span:after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border: 1px solid #d72924;
+        position: absolute;
+        top: -5px;
+        right: -4px;
+        border-radius: 50%;
+        background: #d72924;
+    }
+
+    .signed_label input[type="checkbox"]:checked~span:before {
+        content: "x";
+        position: absolute;
+        top: -7px;
+        right: -1px;
+        font-size: 9px;
+        z-index: 1;
+        color: #fff;
+    }
+</style>
+
+<section class="main-content-area ptb-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs category_tabs">
+                    <li class="nav-item">
+                        <a class="nav-link plus" href="Javascript: void(0)" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">+</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#my_posts">My Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="tab" href="#category_1">Category 1</a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane container p-0 pt-4 active" id="my_posts">
+                        <%- include('../partials/my-posts.home.ejs') %>
+                    </div>
+                    <div class="tab-pane container p-0 pt-4 fade" id="category_1">Category 1</div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <aside class="widget-area" id="secondary">
+                    <section class="widget widget_tag_cloud">
+                        <p><b>Recommended Categories</b></p>
+                        <div class="tagcloud">
+                            <a href="#">Business <span class="tag-link-count"> (3)</span></a> <a href="#">Design
+                                <span class="tag-link-count"> (3)</span></a> <a href="#">IT <span
+                                    class="tag-link-count"> (2)</span></a>
+                            <a href="#">Marketing <span class="tag-link-count"> (2)</span></a> <a href="#">Mobile
+                                <span class="tag-link-count"> (1)</span></a> <a href="#">Protect <span
+                                    class="tag-link-count"> (1)</span></a>
+                            <a href="#">Startup <span class="tag-link-count"> (1)</span></a> <a href="#">Tips <span
+                                    class="tag-link-count"> (2)</span></a>
+                        </div>
+                    </section>
+                    <section class="widget wiget_posts_thumbs">
+                        <h3 class="widget-title">Who to follow</h3>
+                        <article>
+                            <a href="#" class="thumb"> <span class="fullimage thumb-bg1"></span> </a>
+                            <div class="info">
+                                <h4 class="title"><a href="#"><b>The 5 most iconic songs of all time have been
+                                            revealed.</b></a></h4>
+                                <p>Lorem ipsum dolor, sit amet hdhd adipisicing elit...</p>
+                            </div>
+                        </article>
+                        <article>
+                            <a href="#" class="thumb"> <span class="fullimage thumb-bg2"></span> </a>
+                            <div class="info">
+                                <h4 class="title"><a href="#"><b>Google web ranking changing much company</b></a>
+                                </h4>
+                                <p>Lorem ipsum dolor, sit amet hdhd adipisicing elit...</p>
+                            </div>
+                        </article>
+                        <article>
+                            <a href="#" class="thumb"> <span class="fullimage thumb-bg3"></span> </a>
+                            <div class="info">
+                                <h4 class="title"><a href="#"><b>10 Tactics for marketing your company</b></a></h4>
+                                <p>Lorem ipsum dolor, sit amet hdhd adipisicing elit...</p>
+                            </div>
+                        </article>
+                        <article>
+                            <a href="#" class="thumb"> <span class="fullimage thumb-bg4"></span> </a>
+                            <div class="info">
+                                <h4 class="title"><a href="#"><b>The 5 most iconic songs of all time have been
+                                            revealed.</b></a></h4>
+                                <p>Lorem ipsum dolor, sit amet hdhd adipisicing elit...</p>
+                            </div>
+                        </article>
+                    </section>
+                    <section class="widget widget_recent_entries">
+                        <h3 class="widget-title">Staff Picks</h3>
+                        <ul>
+                            <li><a href="#">How to Become a Successful Entry Level UX Designer</a></li>
+                            <li><a href="#">How to start your business as an entrepreneur</a></li>
+                            <li><a href="#">How to be a successful entrepreneur</a></li>
+                            <li><a href="#">How to Become a Successful Entry Level UX Designer</a></li>
+                            <li><a href="#">Protect your workplace from cyber attacks</a></li>
+                        </ul>
+                    </section>
+                    <section class="widget newsletter_box">
+                        <div class="newsletter-box">
+                            <div class="newsletter-box-inner">
+                                <h3>Subscribe To Our Mailing List To Get The New Updates!</h3>
+                                <i class="icofont-email"></i>
+                                <form class="newsletter-form" data-toggle="validator">
+                                    <input type="email" class="newsletter-input" placeholder="Enter your email"
+                                        name="EMAIL" required autocomplete="off" /> <button type="submit"><i
+                                            class="icofont-paper-plane"></i></button>
+                                    <div id="validator-newsletter" class="form-result"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('../partials/recommendation.popup.ejs') %>

@@ -1,0 +1,25 @@
+<%- include('includes/head.ejs') %>
+</head>
+<body>
+    <div id="layout-wrapper">
+        <!-- ========== Header ========== -->
+        <%- include('includes/header.ejs') %>
+
+        <!-- ========== App Menu ========== -->
+        <%- include('includes/sidebar.ejs') %>
+
+        <!-- ========== Content Area ========== -->
+        <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+                    <%- include('./components/dashboard.component.ejs') %>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== Footer Area ========== -->
+        <%- include('includes/footer.ejs') %>          
+    </div>
+    <%- include('includes/scripts.ejs') %>
+</body>
+</html>

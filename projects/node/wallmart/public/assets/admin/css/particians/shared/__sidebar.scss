@@ -1,0 +1,16 @@
+.app-menu {
+    overflow: hidden;
+    overflow-y: auto;
+}
+.navbar-menu{
+
+    .navbar-brand-box{
+        height: 70px;
+        width: 100%;
+        @include inline-flex-center;
+    }
+
+    div#scrollbar {
+        height: auto !important;
+    }   
+}
