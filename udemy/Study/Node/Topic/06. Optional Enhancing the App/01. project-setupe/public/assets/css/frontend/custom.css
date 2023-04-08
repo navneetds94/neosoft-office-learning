@@ -1,0 +1,12 @@
+/* product css */
+.product-details h6 a {
+    color: #222222;
+}
+
+/* add to cart button */
+.btn-cart{
+    padding: 0;
+    text-align: left;
+    border: 0;
+    background: transparent;
+}

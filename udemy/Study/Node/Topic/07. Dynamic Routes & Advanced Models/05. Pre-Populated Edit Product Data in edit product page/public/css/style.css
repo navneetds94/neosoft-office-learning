@@ -1,0 +1,42 @@
+/* global css */
+html{
+    font-size: 10px;
+}
+
+html , body{
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
+/* header css */
+.navbar-brand {
+    font-size: 1.8rem;
+}
+
+/* form css */
+
+.form-control{
+    font-size: 1.6rem;
+}
+
+.custom_form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.custom_form input.form-control , .custom_form select.form-control{
+    height: 40px;
+}
+
+.custom_form textarea.form-control{
+    height: 100px;
+}
+
+/* button and links css */
+.btn{
+    font-size: 1.6rem;
+}

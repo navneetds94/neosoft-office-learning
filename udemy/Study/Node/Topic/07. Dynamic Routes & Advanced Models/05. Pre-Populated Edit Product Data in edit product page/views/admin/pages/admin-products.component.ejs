@@ -1,0 +1,30 @@
+<div class="container pt-5 pb-5">
+    <h1>Product List</h1>
+    
+    <% if(prods.length > 0){ %>
+    <section class="product_list mt-5">
+        <div class="row">
+            <% for (let data of prods) {%>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <article class="card shadow text-center p-4">
+                    <h4><%= data.title %></h4>
+                    <a href="/product-detail/<%= data.id %>" class="d-block mb-2"><img src="<%= data.imageUrl %>" alt="<%= data.title %>" class="w-100"></a>
+                    <h5 class="text-success">$<%= data.price %></h5>
+                    <p><%= data.description %></p>
+                    <div>
+                        <a href="/admin/edit-product/<%= data.id %>?edit=true" class="btn btn-outline-info mr-2">Edit</a>
+                        <a href="javascript: void(0)" class="btn btn-outline-danger">Delete</a>
+                    </div>
+                </article>
+            </div>
+            <%}%>
+        </div>
+    </section>
+    <% } else{ %>
+        <div class="card mb-4 mt-5 py-3 border border-danger border-width-2-px" style="max-width: 450px;">
+            <div class="card-body text-center text-danger">
+                Product Not Added Yet
+            </div>
+        </div>
+    <% } %>
+</div>

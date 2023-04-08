@@ -1,0 +1,27 @@
+<h1 class="h3 mb-4 text-gray-800">Product Detail</h1>
+<div class="product-description">
+
+    <!-- <p><%= prod.id %></p> -->
+
+    <div class="card h-100 bg-transparent border-0">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="d-block h-100">
+                  <img src="<%= prod.image %>" class="card-img-top h-100" alt="Product" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body px-3 pt-0 pb-0">
+                  <div class="d-flex justify-content-between blog-head">
+                    <div>
+                      <p class="h5 text-primary"><%= prod.title %></p>
+                    </div>
+                  </div>
+                  <div class="blog-content blog-desc">
+                    <p><%= prod.desc %></p>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,36 @@
+<section class="add_product pt-5 pb-5">
+    <div class="container">
+        <form action="/admin/<% if(editing) { %>update-product<%} else {%>submit-product<%}%>" method="POST" class="custom_form">
+            <% if(editing) { %>
+                <div class="form-group mb-4">
+                    <input type="hidden" name="id" value="<% if(editing) {%><%= prod.id %><%}%>" />
+                </div>
+            <%}%>
+            <div class="form-group mb-4">
+                <label for="titleField">Title</label>
+                <input type="text" name="title" id="titleField" class="form-control" value="<% if(editing){%><%= prod.title %><%}%>" />
+            </div>
+            <div class="form-group mb-4">
+                <label for="imageurlField">Image URL</label>
+                <input type="text" name="imageUrl" id="imageurlField" class="form-control" value="<% if(editing) {%><%= prod.imageUrl %><%}%>" />
+            </div>
+            <div class="form-group mb-4">
+                <label for="priceField">Price</label>
+                <input type="text" name="price" id="priceField" class="form-control" value="<% if(editing) {%><%= prod.price %><%}%>" />
+            </div>
+            <div class="form-group">
+                <label for="descriptionField">Description</label>
+                <textarea name="description" id="descriptionField" class="form-control"><% if(editing) {%><%= prod.description %><%}%></textarea>
+            </div>
+            <div class="form-group pt-4 text-center">
+                <button type="submit" class="btn btn-primary btn-lg">
+                    <% if(editing){ %>
+                        Update Product
+                    <%} else {%>
+                        Submit
+                    <%}%>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>

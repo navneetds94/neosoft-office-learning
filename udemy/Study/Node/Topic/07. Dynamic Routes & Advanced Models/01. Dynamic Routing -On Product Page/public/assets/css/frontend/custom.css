@@ -1,0 +1,33 @@
+/* product css */
+.product-details h6 a {
+    color: #222222;
+}
+
+/* add to cart button */
+.btn-cart{
+    padding: 0;
+    text-align: left;
+    border: 0;
+    background: transparent;
+}
+
+/* single product css */
+.single-product .product_image {
+    overflow: hidden;
+    display: block;
+    margin-bottom: 10px;
+    height: 250px;
+}
+.single-product .product_image img {
+    transition: all 300ms ease-in;
+    margin: 0;
+    height: 100%;
+    object-fit: cover;
+}
+.single-product:hover .product_image img {
+    transform: scale(1.1);
+}
+
+.single-product .product-details h6 a:hover {
+    color: #ffba00;
+}

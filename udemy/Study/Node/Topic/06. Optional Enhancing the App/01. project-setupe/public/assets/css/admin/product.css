@@ -1,0 +1,19 @@
+.product_box {
+    overflow: hidden;
+}
+
+
+.product_box .product-image{
+    height: 265px;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.product_box .product-image img{
+    transition: all 300ms ease-in;
+}
+
+
+.product_box:hover .product-image img{
+    transform: scale(1.1);
+}
