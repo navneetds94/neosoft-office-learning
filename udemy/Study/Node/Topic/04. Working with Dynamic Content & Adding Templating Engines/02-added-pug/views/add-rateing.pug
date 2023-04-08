@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+html(lang="en")
+    head 
+        title Add Rateing
+        meta(charset="UTF-8")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        header
+            nav
+                a(href="/") Home
+                a(href="/products") Products
+                a.active(href="/rateing") Rateing
+
+        main
+            h1 Add Rateing
+            form.medium-form(action="/submit-rateing",method="POST")
+                .row
+                    .col-lg-4.col-md-4.col-sm-4
+                        .form-group
+                            label(for="emailid") Email
+                            input.form-control.height-control(type="email",name="email",placeholder="Type.....",required)#emailid
+
+                    .col-lg-4.col-md-4.col-sm-4
+                        .form-group
+                            label(for="password") Password
+                            input.form-control.height-control(type="password",name="pwd",placeholder="Type.....",required)#password
+
+                    .col-lg-4.col-md-4.col-sm-4
+                        .form-group
+                            label(for="rate") Rate
+                            input.form-control.height-control(type="number",name="rate",placeholder="Type.....",min="1",max="5",required)#rate
+
+                    .col-lg-12.col-md-12.col-sm-12
+                        .form-group
+                            label(for="comment") Comment
+                            textarea.form-control.textarea-height(name="cmt",placeholder="Type.....",required)#comment
+                
+                br
+
+                button.btn.btn-primary(type="submit")
+                    i.fa.fa-save
+                    | &nbsp;&nbsp;Send

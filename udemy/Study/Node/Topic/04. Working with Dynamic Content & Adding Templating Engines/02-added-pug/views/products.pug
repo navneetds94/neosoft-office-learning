@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+html(lang="en")
+    head 
+        title Products
+        meta(charset="UTF-8")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        header
+            nav
+                a(href="/") Home
+                a.active(href="/products") Products
+                a(href="/rateing") Rateing
+
+        main
+            h1 This is a product list page
+            p Not any product found yet
+            .add_more
+                a(href="/add-product") 
+                    i.fa.fa-plus 

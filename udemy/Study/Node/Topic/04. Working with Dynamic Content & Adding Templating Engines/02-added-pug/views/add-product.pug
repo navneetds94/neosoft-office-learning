@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+html(lang="en")
+    head 
+        title Add Product
+        meta(charset="UTF-8")
+        meta(name="viewport",content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        header
+            nav
+                a(href="/") Home
+                a.active(href="/products") Products
+                a(href="/rateing") Rateing
+
+        main
+            h1 Add Product
+            form.medium-form(action="/submit-product",method="POST")
+                .row
+                    .col-lg-4.col-md-4.col-sm-4
+                        .form-group
+                            label(for="prodName") Name
+                            input.form-control.height-control(type="text",name="name",placeholder="Type.....",required)#prodName
+
+                    .col-lg-4.col-md-4.col-sm-4
+                        .form-group
+                            label(for="prodCategory") Category
+                            input.form-control.height-control(type="text",name="category",placeholder="Type.....",required)#prodCategory
+
+                    .col-lg-4.col-md-4.col-sm-4
+                        .form-group
+                            label(for="prodPrice") Price
+                            input.form-control.height-control(type="number",name="price",placeholder="Type.....",min="1",required)#prodPrice
+
+                    .col-lg-12.col-md-12.col-sm-12
+                        .form-group
+                            label(for="prodDescription") Description
+                            textarea.form-control.textarea-height(name="desciption",placeholder="Type.....",required)#prodDescription
+                
+                br
+
+                button.btn.btn-primary(type="submit")
+                    i.fa.fa-save
+                    | &nbsp;&nbsp;Send
