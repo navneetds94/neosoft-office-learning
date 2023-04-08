@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Rateing</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/products">Products</a>
+            <a href="/rateing" class="active">Rateing</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Add Rateing</h1>
+        <form action="/submit-rateing" method="POST" class="medium-form">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label><br />
+                        <input type="email" name="email" class="form-control height-control" id="fullName" placeholder="Type....." required />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="form-group">
+                        <label for="password">Password</label><br />
+                        <input type="password" name="pwd" class="form-control height-control" id="password" placeholder="Type....." required />
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="form-group">
+                        <label for="rate">Rate</label><br />
+                        <input type="number" class="form-control height-control" min="1" max="5" name="rate" id="rate" placeholder="Type....." required />
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <label for="comment">Comment</label><br />
+                        <textarea name="cmt" id="comment" class="form-control textarea-height" placeholder="Type....." required></textarea>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Send</submit>
+        </form>
+    </main>
+</body>
+
+</html>
