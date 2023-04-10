@@ -864,3 +864,95 @@ TRY AND CREATE BELOW SETUP FROM THE DATA
 Anil v	78
 
 =ROUND(VLOOKUP(G17,A15:E22,MATCH(H16,A15:E15,0),FALSE),0)
+
+
+######################## Logical Operators in Excel
+ Logical operator (sometimes called as Boolean Operators) are used in Excel to compare Two Values.
+In Excel, logical operators are widely used with conditional statements, mathematical formulas etc. Below is the list of logical
+operators widely used in Excel
+
+Eqal To		=	=A1=B1 => This formula return TRUE if A1 is equla to B1 ; otherwise FALSE
+---------------------------------------------------------------------------------------------------------------------------------------
+Not Equal To	<>	=A1<>B1 => This formula return TRUE if A1 is not equla to B1 ; otherwise FALSE // opposite of equal to operator
+---------------------------------------------------------------------------------------------------------------------------------------
+Greater Than	>	=A1>B1 => This formula return TRUE if A1 is greater than B1 ; otherwise FALSE
+---------------------------------------------------------------------------------------------------------------------------------------
+Greater Than
+To		>=	=A1>=B1 => This formula return TRUE if A1 is greater than or equal to B1 ; otherwise FALSE
+---------------------------------------------------------------------------------------------------------------------------------------
+Less Than	>	=A1<B1 => This formula return TRUE if A1 is lesser than B1 ; otherwise FALSE
+---------------------------------------------------------------------------------------------------------------------------------------
+Greater Than
+To		>=	=A1<=B1 => This formula return TRUE if A1 is lesser than or equal to B1 ; otherwise FALSE
+
+##################### Logical Functions in Excel
+In spreadsheets, logical functions determine whether a scenario is true or untrue. You can then choose to perform one of two
+things based on that test results. These choices can show information, make various calculations, or run more tests.
+
+There are different logical functions.
+
+IF ()
+The IF function is the most critical logical function in decision making.
+It follows this format: IF/THEN (condition, true, false)
+for example
+=IF(B2 > 400, "High," "Low")
+If B2 is more significant than 400, the text "High" will be displayed (the result of the test is yes or TRUE)
+If B2 is less than or equal to 400, the text "Low" will be shown (the result of the test is no or FALSE)
+
+AND()
+When comparing multiple conditions, the AND function is utilised. It returns TRUE only if all of the conditions are met.
+the following syntax: AND (condition1, condition2,...)
+for example, use the following formula:
+=AND(B2<400, B2>300)
+
+where B2 < 400 is the initial condition
+tested The second criterion being checked is B2 > 300. This will
+only get the result TRUE if the value in cell B2 is less than 400 and
+larger than 300. In all other cases, the answer will be FALSE. So
+basically it will return TRUE for numbers between 300 to 400.
+
+
+OR()
+The OR function can also be used to compare multiple conditions. If any of the conditions are met, it returns TRUE.
+the following format: =OR(condition1, condition2,....)
+for example,
+
+=OR(B2<400, B2>300) where B2 < 400 is the initial condition tested
+The second criterion being checked is B2 > 300. If either the value
+in cell B2 is less than 400 or the value in cell B2 is greater than 300,
+the result is TRUE. In all other cases, the answer will be FALSE. So
+basically, it will return TRUE for all the numbers.
+
+
+IFERROR()
+The IFERROR function is one of the widely used functions in complex formulas in Excel. This function is not used to calculate
+anything but rather to Trap an error. Generally, based on IFERROR results, further calculations are drawn.
+If a formula evaluates to an error, IFERROR returns the value you specify; otherwise, it returns the formula result. The
+simplest example could be divided by 0. Excel throws an error when a number is divided by 0; hence IFERROR, the function can
+check the denominator and print the result instead of Error. This function is also widely used with VLOOKUP to check if the
+reference value is available or not in the Range
+=IFERROR(Value, Value_If_Error)
+value : Required. The argument that is checked for an error.
+value_if_error : Required. The value to return if the formula evaluates to an error. The following error types are
+evaluated: #N/A, #VALUE!, #REF!, #DIV/0!, #NUM!, #NAME?, or #NULL!.
+
+
+In this example, We have data for Sales employees and their years in Service. If the formula return is divided by 0 error, we can
+predict which employee is in its first year of Sales, and thus average salary cannot be drawn.
+
+
+Sales Employee		Total Sales		Year		Average Annual Sales
+Ram			213935			3		71312
+Buvan			437834			6		72972
+Hari			116450			0		First Year
+Geetal			170360			0		First Year	
+
+
+=IFERROR(B138/C138,"First year")
+
+
+
+################# Remove Duplicate Pairs in Excel
+
+Step 1 -> Got to Data Tab
+Step 2 -> Click on Remove Duplicates Under Data Tools
