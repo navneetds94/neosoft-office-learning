@@ -956,3 +956,172 @@ Geetal			170360			0		First Year
 
 Step 1 -> Got to Data Tab
 Step 2 -> Click on Remove Duplicates Under Data Tools
+
+
+################# nested statements
+
+A Nested IF statement is defined as an Excel formula with multiple IF conditions. It's called “nested” because you're basically
+putting an IF Statement inside another IF Statement and possibly repeating that process multiple times.
+
+
+There are many methods to perform Nested IF statements in Excel. Few of them are listed below
+
+Several IF in the same formula
+------------------------------
+= If(Test1, If True , ........)
+
+=IF(B2<60,"Average",IF(B2<80,"Good","Excellent"))
+
+
+
+The VLOOKUP function (option approximate match)
+-----------------------------------------------
+
+Vlookup is a reference function in Excel, and if is a conditional statement. These two functions are coupled to locate a value that
+fulfills the requirements and matches the reference value, based on the results of the Vlookup function. If statements display the
+result; in other words, Vlookup is nested within the If function.
+For Example – Below is the list of Students and the Grading System. If a student scores 60 & Above, the Grade is Good; below 60,
+it's Average.
+So we write a lookup to capture students' marks and IF conditions to Grade them.
+
+
+
+
+=IF(VLOOKUP(G2,A1:B7,2,FALSE)<60,"Average","Good")
+
+The IFS function (Excel 2016 and more)
+--------------------------------------
+
+It's a new Excel function accessible in Office 365 and Office 2016. You can use the IFS function to define several IF conditions
+within a single Function Call. It replaces the traditional Nesting technique with several IF functions and allows you to enter up to
+127 requirements, making your formula easier to use and read.
+
+
+Syntax =IFS([Something is True1, Value if True1,Something is True2,Value if True2,Something is True3,Value if True3)
+
+
+=IFS(A4="Mango","Fruit",A4="Potato","Vegetable",A4="Lamb","Non Veg",A4="Coffee","Bewerage")
+
+
+The SWITCH function (Excel 2016 and more)
+-----------------------------------------
+
+The SWITCH function compares one value (the expression) to a list of values and returns the result corresponding to the
+first matched value. If no match is found, an optional default value may be returned.
+
+Syntax -> =SWITCH(Value to switch, Value to match1...[2-126], Value to return if there's a match1...[2-126], Value to
+return if there's no match)
+
+The SWITCH function is an alternative to using multiple IF statements, and when used with Vlookup, it reduces the
+complexity to a greater extent.
+The only limitation of a SWITCH function is that it works with exact matches when used alone
+
+
+=SWITCH(A4,"Mango","Fruit","Potato","Vegetable","Lamb","Non Veg","Coffee","Beverage","Error")
+
+
+
+
+############################## Table
+A table comprises columns and actual data rows (similar to a spreadsheet). Each column is assigned a name and a type (data type).
+
+
+Product		Cost Price	Selling Price	Profit
+Mobile		30000		38000		8000
+Laptop		40000		50000		10000
+Shoes		450		500		50
+
+
+
+###################### Pivot Table
+
+A Pivot Table is a tool for summarising, sorting, reorganizing, grouping, counting, totaling, or averaging data stored in a table. It
+enables us to convert columns to rows and rows to columns. It lets you aggregate items by any field (column) and do complex
+calculations on them.
+
+Row Label	Sum of Cost Price	Sum of Profit		Sum of Selling Price
+Earphone	3000			400			3400
+Laptop		60000			12000			72000
+Mobile		30000			8000			38000
+
+
+###################  What are Charts? Why we need charts?
+
+. In Microsoft Excel, a chart is frequently referred to as a graph. It is a graphical depiction of
+  data from a spreadsheet that can provide greater insight into the data than simply looking
+  at the numbers
+
+. A chart is a valuable tool for visually displaying data in various chart types such as Bar,
+  Column, Pie, Line, Area, Doughnut, Scatter, Surface, or Radar charts. It is simple to make a
+  chart with Excel
+
+. A chart is a tool in Excel that allows you to explain data visually. Charts help your audience
+  understand the meaning behind the data, and they make it much easier to display
+  comparisons and trends. In this session, you'll learn how to insert and adjust charts so that
+  they effectively communicate information.
+
+
+box plot position see in image box-plot.png
+
+box plot is use to find outliers
+
+
+outlier -> 
+
+ex some person got job in uber as a data scientist at package of 1cr and his experience under 1 - 2 years
+so here an exception
+
+
+##################### Different types of charts
+
+DS- 18th May - Class Deck (4).pptx see slide 6
+
+
+
+Combo Chart
+
+The combination chart is a type of visualization that combines the
+characteristics of a bar chart and a line chart. The data is displayed
+in the combination chart using several bars and/or lines,
+representing a different category. When comparing numbers from
+different angles, a mix of bars and lines in the same presentation
+might be informative
+
+DS- 18th May - Class Deck (4).pptx see slide 7
+
+##################### What is an Excel Dashboard and how does it differ from a report?
+
+An Excel dashboard is a one-page document (usually, but not always) that assists managers and business
+executives track critical KPIs or metrics and making decisions based on them. It includes data-driven
+charts, tables, and views.
+A dashboard is frequently referred to as a report; however, not all reports are dashboards.
+Here's the distinction:
+
+A report would only collect and display data in one location. A report, for example, would not be
+able to answer a manager's question about how sales have increased over the recent period and
+which regions have been the most profitable. It would simply report all pertinent sales information.
+These reports are then used to build dashboards (in Excel or PowerPoint) to help decision-making.
+
+Reports focus on one specific topic and provide in-depth information on that subject, while dashboards offer a wide range of information using multiple metrics to explain the general status of a situation.
+
+
+####################### Getting started with Dashboards
+
+. Creating an Excel Dashboard is a multi-step process, and there are some essential considerations to bear in mind.
+. Before you open Excel, you should be clear on the dashboard's goals.
+. For example, if you're designing a KPI dashboard to track a company's financial KPIs, your goal would be to compare the current period with the previous period (s).
+. Similarly, suppose you're designing a dashboard for the Human Resources department to track employee training. In that case, the goal is to display how many   employees have been trained and how many still need to be trained to meet the target.
+
+
+####################### Things to Do Before You Even Start Creating an Excel Dashboard
+
+Below are some of the questions you must have already answered before you start building an Excel Dashboard:
+
+Q. What is the Purpose of the Dashboard?
+Q. What are the data sources?
+Q. Who will use this Excel Dashboard?
+Q. How frequently does the Excel Dashboard need to be updated?
+Q. What version of Office does the client/stakeholder uses?
+
+
+Watched Till 2:11:59
