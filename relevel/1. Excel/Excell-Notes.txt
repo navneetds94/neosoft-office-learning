@@ -1125,3 +1125,5 @@ Q. What version of Office does the client/stakeholder uses?
 
 
 Watched Till 2:11:59
+
+In Pivot table we can filter ctegory values  through label filter 
