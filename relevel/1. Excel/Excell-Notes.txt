@@ -1045,6 +1045,25 @@ Laptop		60000			12000			72000
 Mobile		30000			8000			38000
 
 
+
+For removing + collapse from value and repeat according to column values
+. right click on value
+. click field setting
+. layout and print
+. show items label in tabular form
+. check repeate item label
+
+Row Labels	State	Sum of Sales
+Australia	ACT	390547.59
+Australia	NSW	13232431.99
+Australia	NT	778426.3
+Australia	QLD	7141150.25
+Australia	SA	1306436.1
+Australia	TAS	697015.01
+Australia	VIC	8850768.25
+Australia	WA	3924077.45
+
+
 ###################  What are Charts? Why we need charts?
 
 . In Microsoft Excel, a chart is frequently referred to as a graph. It is a graphical depiction of
@@ -1127,3 +1146,229 @@ Q. What version of Office does the client/stakeholder uses?
 Watched Till 2:11:59
 
 In Pivot table we can filter ctegory values  through label filter 
+
+
+
+
+####################### Enable Developer Mode in Excel –
+
+Before we practice any Interactive tools Options, make sure that the Developer Tab in your excel is enabled. If not, please follow the instructions below to enable the Developer Tab:
+
+a. Click on File>Options
+b. Go to Customized Ribbon
+c. Check Developer Option
+
+Once the Developer mode is checked, let's study our first interactive Tools
+
+for creating pivot chart do these steps
+a. convert all data to table
+b.) make sure there is no null values
+
+for removing unwanter buttons from charts right click on button and choose Hide All fields button from chart
+
+1. Slicer
+Slicers provide buttons that can be used to filter tables or PivotTables.
+In addition to quick filtering, Slicers also identify the current filtering status, making it simple to grasp what is now presented. A slicer can easily filter data in a table or Pivot Table. 
+
+when ewe changing values in slicer only 1 chart change tell me reason:
+Ans => because that slicer link to only that pivot
+
+so we need to connect that slicer with others
+
+we can do this by this step
+
+Step 1 => Right Click on slicer and click Report connection
+Step 2 => A dialog come check that pivot chart you want to connect with that slicer
+
+After that you obser these charts also chaning its values according to slicer filter
+
+
+These things also reflect in main pivot tabls there also value changed.
+
+
+
+##################### Spark Lines
+Spark Lines tells you trends , how the data is going or what is the profit , waht is the loss , how much profit , who arned the most and so many things you achive with this
+
+
+Select column
+go to insert 
+In sparklines
+
+
+
+
+########################################### What is an Interactive Dashboard?
+
+An interactive dashboard in excel is basically a slice of visualization which enables your data to tell a story. It enables you to
+dynamically change the Dashboard as we use it. Sometimes we have a situation where all our Data is important, but at one time
+we want to focus on one particular element, or contrary to that, we may have a situation with multiple smaller important
+information, but we want to look at them all together, all such extreme ends are easily accommodated in a report/dashboard
+with interactive Dashboards. 
+
+There are numerous tools to make our Dashboard much more Interactive than "Static Ones" like – 
+
+
+. Scroll Bars
+. Spin Button
+. Checkboxes
+
+
+
+
+########################## Scroll Bar
+
+In a situation where a lot of Data has to be displayed in the chart, we add a scroll bar.
+Scrollbars give us control in two ways, Showing the number of Data points to be shown in a
+single frame, and moving to different data points by using the scrollbar.
+
+
+The spin button is often used with Scrollbars to increase the number of Datapoints shown in
+a single frame
+
+A scroll bar in Excel is just like the one you have seen at many places while using a
+computer system. This is a thin bar mainly displayed in most computer applications to move
+the viewing area of computer applications, left and right or up and down.
+
+To add scroll bar click in developer tools
+click on insert
+then find and choose scroll bar
+
+
+We need to study INDEX & ROW Function before jumping onto
+Scroll Bar.
+
+
+Index Function - The INDEX function returns a value or
+the reference to a value from within a table or range.
+Basically, on Serial Number, it gives the value assigned.
+It works opposite to Match Function.
+Syntax -> =INDEX(array, row_num, [column_num])
+
+	Product				Product		Serial No.
+1	Laptop		Index Funcn	Laptop		2
+2	Mobile				
+3	Watches				
+4	Iphone				
+5	Nokia				
+6	Earphone				
+
+=INDEX(B2:C8,G3,2)
+
+
+Rows Function - Returns the number of rows in a
+reference or array
+Syntax -> =ROWS(array)
+
+			
+Start				
+Laptop		Row	6				
+Mobile							
+Watches							
+Iphone							
+Nokia							
+Earphone							
+End							
+
+=ROWS(C14:C19) //=> Laptop:Earphone
+
+
+
+
+
+State			Area in Sq Km		Population
+Andhra Pradesh		275,045			76,210,007
+Arunachal Pradesh	83,743			1,097,968
+Assam			78,438			26,655,528
+Bihar			94,163			82,998,509
+Chhattisgarh		135,191			20,833,803
+Goa 			3,702			1,347,668
+Gujarat			196,024			50,671,017
+Haryana			44,212			21,144,564
+Himachal Pradesh	55,673			6,077,900
+Jammu & Kashmir		222,236			10,143,700
+
+
+
+Add scollbar through developer , insert in cell
+
+after insert scroll , it need to be link with cell
+
+right click on scroll bar
+
+click format control
+
+
+fill value according to your need:
+Current Value -> 1
+Minimum Value -> 1
+Maximum Value -> 30
+Increment Changes -> 1
+Page Changes -> 1
+Cell Link :- choose its cell adress where to link
+
+
+
+
+######################################   Spin Button
+
+The Spin button makes it easier to increase or
+decrease a value, such as a number increment, time,
+or date. To increase the value, click the up arrow; to
+decrease the value, click the down arrow. A user can
+also type a text value directly in the associated cell
+or text box.
+
+
+Add spin button through developer , insert in cell
+
+after insert spin button, it need to be link with cell
+
+right click on spin button
+
+click format control
+
+fill value according to your need:
+Current Value -> 1
+Minimum Value -> 1
+Maximum Value -> 30
+Increment Changes -> 1
+Page Changes -> 1
+Cell Link :- choose its cell adress where to link
+
+
+
+
+######################################   Checkbox
+
+The Checkbox is an interactive widget we use in
+excel when we want to make Binary Choices.
+Basically, when we want to select or deselect
+between two values. The basis of our selection
+charts will also change dynamically.
+
+
+Add checkbox through developer , insert in cell
+
+after insert checkbox, it need to be link with cell
+
+right click on checkbox
+
+click format control
+
+
+. set checkbox status is check or unchecked
+. in cell link just select cell where you want to set his status
+
+on the basic of that true false use if else , nested if  or  any condition
+
+
+=IF(B4=TRUE,C4,"")
+
+
+
+################################# Option Button/Radio Button
+
+An Option Button or sometimes called Radio Buttons, can be used to select one of the many choices/options
+
+Watched Till 1:12:16
