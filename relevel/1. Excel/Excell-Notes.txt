@@ -1371,4 +1371,363 @@ on the basic of that true false use if else , nested if  or  any condition
 
 An Option Button or sometimes called Radio Buttons, can be used to select one of the many choices/options
 
-Watched Till 1:12:16
+
+
+################################ What are Excel Models? 
+
+
+There are two types of Modelling we do in Excel. 
+
+a. Data Modelling
+
+Data Model is a Visual Representation of the Data and the connection between them. (Relationship between Tables)
+
+
+A Data Model allows you to integrate data from multiple tables, effectively building a relational data source inside an Excel workbook. 
+
+Through this we dont need to use VLOOKUP.
+
+See slide 5 in https://relevel-courses.s3.amazonaws.com/uploads/data-science-course-0002/53ab242dca9c4b16af0fdc36fdec2724.pdf
+
+Main.			1.			2.			3. 
+
+Sales Data		Sales_Rep		State_Zone		Products
+----------		------------		------------		--------------
+Date			Sales_Rep_ID		State			Product_Code
+Sales_Rep_ID =>1	Sales_Rep_Name		Region			Product_Name
+State => 2
+Product_Code => 3
+Sales_value
+
+
+For do this these steps
+
+. click on data tab
+. then click on data model
+. for start we need to convert normal cells data to table
+. then click on relationship in data ribbon
+. Modal Come
+in this modal select tables that you want to for relations
+repete untill yoyu need
+
+
+After that click on data model to check relation , data diagram
+
+after that click on insert tab choose pivot table dropdown choose from data model
+
+A pivot table open now do your calculations
+
+
+this is called power pivot table
+
+
+
+
+b. Excel Business Modelling
+
+A Model is anything that can make a prediction
+or estimate based on inputs and calculations.
+
+
+##### Formulas used in Financial Models
+
+PMT => This will give EMI fixed for you
+
+PMT, one of the financial functions, calculates the payment for a loan based on constant payments and a constant interest rate
+Syntax -> PMT(rate, Nper, pv, [fv], [type])
+
+
+See slide 4 https://relevel-courses.s3.amazonaws.com/uploads/data-science-course-0002/61f5e0d055b048c29a524f046463181f.pdf
+
+
+								
+EMI CALCULATOR						
+								
+LOAN AMOUNT	₹100,000 				
+								
+RATE (Annual)	12%				
+								
+			
+TIME (Years)	10				
+								
+EMI		By Default			
+				
+(₹1,435)	If paid at end of the Period			=> =PMT(E8/12,E10*12,E6,0) => =PMT(12%/12,10*12,100000,0)	=> ($17,698.42)		
+				
+(₹1,435)	If paid at the beginning of the Period		=> =PMT(E8/12,E10*12,E6,1) => =PMT(12%/12,10*12,100000,1)	=> (₹17,698)
+
+
+()  means negative value
+
+
+FV is default is 0 
+because i want to close my emi after repayment
+
+put 1 after 5 month tenure again payment... like of FD
+								
+								
+								
+
+
+
+IPMT => Interest rate for that
+
+Returns the interest payment for a given period for an investment
+based on periodic, constant payments and a constant interest rate.
+
+Syntax -> IPMT(rate, per, Nper, pv, [fv], [type])
+
+Month	Interest
+1	$1,000.00 => =-(IPMT($E$8/12,I30,$E$10*12,$E$6)) => =-(IPMT(12/12,1,10*12,100000))
+2	$995.65 
+3	$991.26 
+4	$986.83 
+5	$982.35 
+6	$977.83 
+7	$973.26 
+8	$968.64 
+9	$963.98 
+10	$959.27 
+11	$954.52 
+12	$949.72 
+13	$944.87 
+14	$939.97 
+15	$935.02 
+16	$930.03 
+17	$924.98 
+18	$919.88 
+19	$914.73 
+20	$909.53 
+21	$904.28 
+22	$898.98 
+23	$893.62 
+24	$888.21 
+25	$882.74 
+26	$877.22 
+27	$871.65 
+28	$866.02 
+29	$860.33 
+30	$854.59 
+31	$848.79 
+32	$842.93 
+33	$837.01 
+34	$831.03 
+35	$825.00 
+36	$818.90 
+37	$812.74 
+38	$806.52 
+39	$800.24 
+40	$793.89 
+41	$787.49 
+42	$781.01 
+43	$774.48 
+44	$767.87 
+45	$761.21 
+46	$754.47 
+47	$747.67 
+48	$740.80 
+49	$733.86 
+50	$726.85 
+51	$719.77 
+52	$712.62 
+53	$705.40 
+54	$698.11 
+55	$690.74 
+56	$683.30 
+57	$675.79 
+58	$668.20 
+59	$660.54 
+60	$652.79 
+61	$644.97 
+62	$637.08 
+63	$629.10 
+64	$621.04 
+65	$612.91 
+66	$604.69 
+67	$596.39 
+68	$588.01 
+69	$579.54 
+70	$570.99 
+71	$562.35 
+72	$553.63 
+73	$544.82 
+74	$535.92 
+75	$526.93 
+76	$517.85 
+77	$508.68 
+78	$499.42 
+79	$490.07 
+80	$480.62 
+81	$471.08 
+82	$461.45 
+83	$451.71 
+84	$441.88 
+85	$431.96 
+86	$421.93 
+87	$411.80 
+88	$401.57 
+89	$391.24 
+90	$380.80 
+91	$370.27 
+92	$359.62 
+93	$348.87 
+94	$338.01 
+95	$327.04 
+96	$315.97 
+97	$304.78 
+98	$293.48 
+99	$282.07 
+100	$270.54 
+101	$258.90 
+102	$247.14 
+103	$235.27 
+104	$223.27 
+105	$211.16 
+106	$198.92 
+107	$186.57 
+108	$174.08 
+109	$161.48 
+110	$148.75 
+111	$135.89 
+112	$122.90 
+113	$109.78 
+114	$96.53 
+115	$83.15 
+116	$69.63 
+117	$55.98 
+118	$42.19 
+119	$28.27 
+120	$14.21 
+
+
+
+
+PPMT => Principal for each month
+
+Definition - Returns the payment on the principal for a given period for an
+investment based on periodic, constant payments and a constant interest
+rate
+
+Syntax -> PPMT(rate, per, nper, pv, [fv], [type])
+
+Month	Interest	Prinicipal
+1	$1,000.00 	$434.71 => =-PPMT($E$8/12,I30,$E$10*12,$E$6) => =-PPMT(12/12,1,10*12,100000))
+2	$995.65 	$439.06 
+3	$991.26 	$443.45 
+4	$986.83 	$447.88 
+5	$982.35 	$452.36 
+6	$977.83 	$456.88 
+7	$973.26 	$461.45 
+8	$968.64 	$466.07 
+9	$963.98 	$470.73 
+10	$959.27 	$475.44 
+11	$954.52 	$480.19 
+12	$949.72 	$484.99 
+13	$944.87 	$489.84 
+14	$939.97 	$494.74 
+15	$935.02 	$499.69 
+16	$930.03 	$504.68 
+17	$924.98 	$509.73 
+18	$919.88 	$514.83 
+19	$914.73 	$519.98 
+20	$909.53 	$525.18 
+21	$904.28 	$530.43 
+22	$898.98 	$535.73 
+23	$893.62 	$541.09 
+24	$888.21 	$546.50 
+25	$882.74 	$551.97 
+26	$877.22 	$557.49 
+27	$871.65 	$563.06 
+28	$866.02 	$568.69 
+29	$860.33 	$574.38 
+30	$854.59 	$580.12 
+31	$848.79 	$585.92 
+32	$842.93 	$591.78 
+33	$837.01 	$597.70 
+34	$831.03 	$603.68 
+35	$825.00 	$609.71 
+36	$818.90 	$615.81 
+37	$812.74 	$621.97 
+38	$806.52 	$628.19 
+39	$800.24 	$634.47 
+40	$793.89 	$640.82 
+41	$787.49 	$647.22 
+42	$781.01 	$653.70 
+43	$774.48 	$660.23 
+44	$767.87 	$666.83 
+45	$761.21 	$673.50 
+46	$754.47 	$680.24 
+47	$747.67 	$687.04 
+48	$740.80 	$693.91 
+49	$733.86 	$700.85 
+50	$726.85 	$707.86 
+51	$719.77 	$714.94 
+52	$712.62 	$722.09 
+53	$705.40 	$729.31 
+54	$698.11 	$736.60 
+55	$690.74 	$743.97 
+56	$683.30 	$751.41 
+57	$675.79 	$758.92 
+58	$668.20 	$766.51 
+59	$660.54 	$774.17 
+60	$652.79 	$781.92 
+61	$644.97 	$789.74 
+62	$637.08 	$797.63 
+63	$629.10 	$805.61 
+64	$621.04 	$813.67 
+65	$612.91 	$821.80 
+66	$604.69 	$830.02 
+67	$596.39 	$838.32 
+68	$588.01 	$846.70 
+69	$579.54 	$855.17 
+70	$570.99 	$863.72 
+71	$562.35 	$872.36 
+72	$553.63 	$881.08 
+73	$544.82 	$889.89 
+74	$535.92 	$898.79 
+75	$526.93 	$907.78 
+76	$517.85 	$916.86 
+77	$508.68 	$926.03 
+78	$499.42 	$935.29 
+79	$490.07 	$944.64 
+80	$480.62 	$954.09 
+81	$471.08 	$963.63 
+82	$461.45 	$973.26 
+83	$451.71 	$983.00 
+84	$441.88 	$992.83 
+85	$431.96 	$1,002.75 
+86	$421.93 	$1,012.78 
+87	$411.80 	$1,022.91 
+88	$401.57 	$1,033.14 
+89	$391.24 	$1,043.47 
+90	$380.80 	$1,053.90 
+91	$370.27 	$1,064.44 
+92	$359.62 	$1,075.09 
+93	$348.87 	$1,085.84 
+94	$338.01 	$1,096.70 
+95	$327.04 	$1,107.66 
+96	$315.97 	$1,118.74 
+97	$304.78 	$1,129.93 
+98	$293.48 	$1,141.23 
+99	$282.07 	$1,152.64 
+100	$270.54 	$1,164.17 
+101	$258.90 	$1,175.81 
+102	$247.14 	$1,187.57 
+103	$235.27 	$1,199.44 
+104	$223.27 	$1,211.44 
+105	$211.16 	$1,223.55 
+106	$198.92 	$1,235.79 
+107	$186.57 	$1,248.14 
+108	$174.08 	$1,260.63 
+109	$161.48 	$1,273.23 
+110	$148.75 	$1,285.96 
+111	$135.89 	$1,298.82 
+112	$122.90 	$1,311.81 
+113	$109.78 	$1,324.93 
+114	$96.53 		$1,338.18 
+115	$83.15 		$1,351.56 
+116	$69.63 		$1,365.08 
+117	$55.98 		$1,378.73 
+118	$42.19 		$1,392.51 
+119	$28.27 		$1,406.44 
+120	$14.21 		$1,420.50 
