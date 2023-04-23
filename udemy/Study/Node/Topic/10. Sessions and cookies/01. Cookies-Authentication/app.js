@@ -44,13 +44,12 @@ Product.belongsTo(User, {constraints: true, onDelete: 'CASCADE'});
 // sequelize.sync({force: true})
 sequelize.sync()
 .then(user => {
-    return User.findByPk(1)
+    // return User.findByPk(1)
+    return User.findAll({'where' : {'id':1}})
 })
 .then(user => {
     if(!user){
-        return User.create(
-            {name: 'Navneet', email:"navneet@gmail.com"}
-        )
+        return "User Not Found"
     }
     // return Promise.resolve(user);
     return user;
