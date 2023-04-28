@@ -1,0 +1,33 @@
+<%- include('../shared/head') %>
+</head>
+<body>
+    <%- include('../shared/header.ejs') %>
+    <%- include('../components/write-post.component.ejs') %>
+
+    <%- include('../shared/footer.ejs') %>
+    <%- include('../shared/scripts.ejs') %>
+    
+        <script>
+            $(document).ready(function() {
+                $('textarea#summernote').summernote({
+        placeholder: 'Type your post',
+        tabsize: 2,
+        height: 300,
+  toolbar: [
+        ['style', ['style']],
+        ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+        ['fontname', ['fontname']],
+        ['fontsize', ['fontsize']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['height', ['height']],
+        ['table', ['table']],
+        ['insert', ['link', 'picture', 'hr']],
+        ['view', ['fullscreen', 'codeview']],
+        ['help', ['help']]
+      ],
+      });
+            });
+        </script>
+</body>
+</html>

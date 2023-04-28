@@ -27,12 +27,20 @@
             </li>
             <% } %>
         </ul>
-        <% if(isAuthenticated != true) { %>
         <ul class="main-header__item-list">
+            <% if(isAuthenticated != true) { %>
             <li class="main-header__item">
                 <a href="/login" class="<%= path === '/login' ? 'active' : '' %>">Login</a>
             </li>
+            <%}%>
+
+            <% if(isAuthenticated == true) { %>
+            <li class="main-header__item">
+                <form action="/logout" method="POST">
+                    <button type="submit">Logout</button>
+                </form>
+            </li>
+            <%}%>
         </ul>
-        <%}%>
     </nav>
 </header>

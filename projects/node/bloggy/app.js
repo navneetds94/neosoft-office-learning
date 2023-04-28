@@ -1,10 +1,12 @@
 const path = require('path');
 const express = require('express');
+const session = require('express-session');
 const app = express()
 const PORT = process.env.PORT || 3000
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname,'/public')));
+app.use(session({secret:'my secret', resave: false , saveUninitialized:false}))
 const error_ctrl = require('./ctrls/errors.ctrl')
 
 const sequelize = require('./util/database');

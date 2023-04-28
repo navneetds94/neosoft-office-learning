@@ -3,10 +3,14 @@
 <body>
     <%- include('../shared/header.ejs') %>
     <!-- Home Before Login -->
+    <% if(isAuthenticated != true) { %>
     <%- include('../components/home-before.component.ejs') %>
+    <%}%>
 
     <!-- Home After Login -->
-    <%- //include('../components/home-after.component.ejs') %>
+    <% if(isAuthenticated) { %>
+        <%- include('../components/home-after.component.ejs') %>
+    <%}%>
 
     <%- include('../shared/footer.ejs') %>
     <%- include('../shared/scripts.ejs') %>

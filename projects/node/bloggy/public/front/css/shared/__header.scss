@@ -1,0 +1,21 @@
+.header-area {
+    padding-bottom: 12px;
+    .dropdown:hover .dropdown-menu {
+        display: block !important;
+    }
+    
+    .dropdown-menu a {
+        font-size: 14px !important;
+    }
+
+    .btn-logout{
+        background-color: transparent !important;
+        border: 0;
+        width: 100%;
+        text-align: left;
+        padding: 0;
+    }
+}
+
+
+.sinmun-nav nav .others-options a span{font-size: 12px;}

@@ -8,32 +8,53 @@
         <div class="sinmun-nav">
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-light">
-                    <a class="navbar-brand" href="index-7.html"><img src="/front/img/logo.png" alt="logo" width="150" /></a>
+                    <a class="navbar-brand" href="index-7.html"><img src="/front/img/logo.png" alt="logo"
+                            width="150" /></a>
                     <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                        <ul class="navbar-nav" style="margin-right: 0;">
-                            <li class="nav-item"><a href="Javascript: void(0)" class="nav-link">Our Story</a></li>
-                            <li class="nav-item"><a href="Javascript: void(0)" class="nav-link">Our Blogs</a></li>
-                            <li class="nav-item"><a href="Javascript: void(0)" class="nav-link">Membership</a></li>
-                            <li class="nav-item"><a href="Javascript: void(0)" class="nav-link">Write</a></li>
-                        </ul>
-                        <div class="others-options">
-                            <div class="d-inline-block">
-                                <a href="Javascript: void(0)"><i class="fa fa-bell-o"></i></a>
-                            </div>
-                            <div class="d-inline-block">
-                                <a href="/login"><i class="icofont-user-alt-5"></i></a>
-                            </div>
-                            <div class="header-search d-inline-block">
-                                <div class="nav-search">
-                                    <div class="nav-search-button"><i class="icofont-ui-search"></i></div>
-                                    <form>
-                                        <span class="nav-search-close-button" tabindex="0">✕</span>
-                                        <div class="nav-search-inner"><input name="search"
-                                                placeholder="Search here...." /></div>
-                                    </form>
+                        <% if(isAuthenticated != true){ %>
+                            <ul class="navbar-nav" style="margin-right: 0;">
+                                <li class="nav-item"><a href="Javascript: void(0)" class="nav-link">Our Story</a></li>
+                                <li class="nav-item"><a href="Javascript: void(0)" class="nav-link">Our Blogs</a></li>
+                                <li class="nav-item"><a href="Javascript: void(0)" class="nav-link">Membership</a></li>
+                                <li class="nav-item"><a href="Javascript: void(0)" class="nav-link">Write</a></li>
+                            </ul>
+                            <%}%>
+                                <div class="others-options ms-auto">
+                                    <% if(isAuthenticated != true){ %>
+                                        <div class="d-inline-block">
+                                            <a href="/login"><i class="icofont-user-alt-5"></i></a>
+                                        </div>
+                                        <%}%>
+                                            <% if(isAuthenticated){ %>
+                                                <div class="d-inline-block">
+                                                    <a href="Javascript: void(0)"><i class="fa fa-bell-o"></i></a>
+                                                </div>
+                                                <div class="d-inline-block dropdown">
+                                                    <a href="Javascript: void(0)"><i class="icofont-user-alt-5"></i></a>
+                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                        <a class="dropdown-item" href="javascript: void(0)">My Profile</a>
+                                                        <a class="dropdown-item" href="/write-post">Write Post</a>
+                                                        <a class="dropdown-item" href="javascript: void(0)">
+                                                            <form action="/logout" method="POST">
+                                                                <button class="btn-logout">Logout</button>
+                                                            </form>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <%}%>
+                                                <div class="header-search d-inline-block">
+                                                    <div class="nav-search">
+                                                        <div class="nav-search-button"><i
+                                                                class="icofont-ui-search"></i></div>
+                                                        <form>
+                                                            <span class="nav-search-close-button"
+                                                                tabindex="0">✕</span>
+                                                            <div class="nav-search-inner"><input name="search"
+                                                                    placeholder="Search here...." /></div>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                 </div>
-                            </div>
-                        </div>
                     </div>
                 </nav>
             </div>
