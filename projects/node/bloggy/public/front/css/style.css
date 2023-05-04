@@ -19,6 +19,53 @@
   font-size: 12px;
 }
 
+.otp-form {
+  text-align: center;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.otp-form p {
+  font-size: 16px;
+  line-height: 20px;
+}
+.otp-form .otp_input {
+  max-width: 220px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px auto 0;
+}
+.otp-form .otp_input input {
+  width: calc(25% - 10px);
+  text-align: center;
+  height: 45px;
+  border: 1px solid #ddd3d3;
+  border-radius: 4px;
+  outline: none;
+  font-size: 18px;
+  color: #d72924;
+}
+
+.medium-modal .modal-dialog {
+  max-width: 800px;
+}
+
+.modal .having_backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+.modal .modal-dialog {
+  z-index: 1;
+}
+
 .image_list {
   flex-wrap: wrap;
 }

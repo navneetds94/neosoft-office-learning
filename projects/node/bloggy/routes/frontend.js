@@ -13,6 +13,7 @@ routes.post('/logout',ctrl.postLogout);
 // Register
 routes.get('/register',ctrl.getRegister);
 routes.post('/submit-user',ctrl.postRegister);
+routes.post('/verify-otp',ctrl.postVerifyOtp);
 
 routes.get('/register-successfull',ctrl.getRegisterSuccessful);
 

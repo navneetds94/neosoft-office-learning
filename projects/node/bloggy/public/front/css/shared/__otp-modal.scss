@@ -1,0 +1,33 @@
+.otp-form {
+    text-align: center;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .otp_input {
+        max-width: 220px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin: 15px auto 0;
+
+        input {
+            width: calc(25% - 10px);
+            text-align: center;
+            height: 45px;
+            border: 1px solid #ddd3d3;
+            border-radius: 4px;
+            outline: none;
+            font-size: 18px;
+            color: #d72924;
+        }
+    }
+}

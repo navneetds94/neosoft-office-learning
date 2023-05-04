@@ -6,5 +6,41 @@
     </div>
 </section>
 
+<% if(isOtp) { %>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            <form action="/verify-otp" method="POST" class="otp-form">
+                <p>We have sent you a 4 digit cose at: <br /><b><%= otpEmail %></b></p>
+                <div class="otp_input">
+                    <input type="text" maxlength="1" class="otp_input_field" name="otp_num_1" />
+                    <input type="text" maxlength="1" class="otp_input_field" name="otp_num_2"  />
+                    <input type="text" maxlength="1" class="otp_input_field" name="otp_num_3" />
+                    <input type="text" maxlength="1" class="otp_input_field" name="otp_num_4"/>
+                </div>
+                <button type="submit" class="btn btn-primary mt-4">Verify</button>
+                <% if(otpNotMatched){ %>
+                    <p style="color: red;font-size: 16px;margin-top: 15px;">OTP not matched</p>
+                <%}%>
+            </form>
+        </div>
+      </div>
+    </div>
+    <div class="having_backdrop"></div>
+  </div>
+      <script>
+        $(document).ready(function(){
+            $("#exampleModal").modal('show');
+
+            $('.otp_input_field').keyup(function(e){
+                if($(this).val().length==$(this).attr('maxlength'))
+                    $(this).next(':input').focus()
+            })
+        });
+    </script>
+<%}%>
+
 <%- include('../partials/trending-before.home.ejs') %>
 <%- include('../partials/blogs-before.home.ejs') %>
