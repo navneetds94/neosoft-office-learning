@@ -1,0 +1,30 @@
+table{
+    border: 1px solid #ccc;
+    text-align: left;
+    width: 350px;
+    margin: 0 auto;
+    border-spacing: 0;
+    font-family: arial;
+    font-size: 13px;
+}
+
+table tr:first-child th {
+    background: #a5d9a5;
+    border-right-color: #fff;
+}
+
+th , td{
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-left: 0;
+    border-bottom: 0;
+}
+
+th:last-child , td:last-child {
+    border-right: 0 !important;
+    background-color: #efefef;
+}
+
+table tr:nth-child(odd){
+    background-color: #efefef;
+}
