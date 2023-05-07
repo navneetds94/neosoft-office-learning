@@ -1,4 +1,5 @@
-const User = require('../models/Users.mdl')
+const User = require('../models/Users.mdl');
+const Blog = require('../models/Blogs.mdl');
 const nodemailer = require('nodemailer');
 const { Op } = require("sequelize");
 const sequelize = require('../util/database');
@@ -15,16 +16,32 @@ let transporter = nodemailer.createTransport({
 
 // Home Page
 module.exports.getHome = (req, res) => {
-    // console.log(req.session.isLogin)
+    console.log(req.session.isLogin)
     // console.log(req.session.userId)
     // console.log(req.session.isOtp)
-    res.render('frontend/page-list/index', {
-        title: 'Home',
-        isAuthenticated: req.session.isLogin,
-        isOtp : req.session.isOtp,
-        otpEmail : req.session.sendEmail,
-        otpNotMatched : req.session.otpNotMatched
-    });
+    
+    if (req.session.isLogin){
+        Blog.findAll({where:[{"userId":req.session.userId}]}).then(results => {
+            console.log(results)
+            res.render('frontend/page-list/index', {
+                blog_list: results,
+                title: 'Home',
+                isAuthenticated: req.session.isLogin,
+                isOtp : req.session.isOtp,
+                otpEmail : req.session.sendEmail,
+                otpNotMatched : req.session.otpNotMatched
+            });
+        }).catch(err => console.log(err));
+    }
+    else{
+        res.render('frontend/page-list/index', {
+            title: 'Home',
+            isAuthenticated: req.session.isLogin,
+            isOtp : req.session.isOtp,
+            otpEmail : req.session.sendEmail,
+            otpNotMatched : req.session.otpNotMatched
+        });
+    }
 }
 
 // Login Page
@@ -380,9 +397,48 @@ module.exports.getRegisterSuccessful = (req, res) => {
 }
 
 // Write Post Page
-module.exports.getWritePost= (req,res) => {
+module.exports.getWritePost = (req,res) => {
+    //console.log(req.session.userId)
     res.render('frontend/page-list/write-post', {
         title: 'Write Post',
         isAuthenticated: req.session.isLogin
     })
+}
+
+module.exports.postWritePost = (req,res) => {
+    const user_id = req.session.userId
+    const title = req.body.title;
+    const image_file = req.file;
+    const content = req.body.content;
+    // console.log(image_file)
+    console.log(user_id)
+
+    const image = image_file.path;
+    if(!image_file){
+        return "Other Format";
+    }
+    else{
+        Blog.create({
+            userId: user_id,
+            title: title,
+            slides: image,
+            content: content
+        }).then(result => {
+            console.log('Blog Added Succesfully');
+            res.redirect('/');
+          }).catch(err=> {console.log(err)})
+    }
+}
+
+// post detail page
+module.exports.getPostDetail = (req,res) => {
+    const blogId = req.params.blogId
+    Blog.findByPk(blogId).then(result => {
+        console.log(result)
+        res.render('frontend/page-list/post-detail',{
+            title: 'Post',
+            isAuthenticated: req.session.isLogin,
+            postData: result
+        })
+    }).catch(err=> {console.log(err)});
 }

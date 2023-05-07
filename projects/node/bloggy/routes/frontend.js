@@ -19,5 +19,9 @@ routes.get('/register-successfull',ctrl.getRegisterSuccessful);
 
 // write-post
 routes.get('/write-post', ctrl.getWritePost);
+routes.post('/add-post', ctrl.postWritePost);
+
+// post-detail page
+routes.get('/post-detail/:blogId', ctrl.getPostDetail)
 
 module.exports = routes;

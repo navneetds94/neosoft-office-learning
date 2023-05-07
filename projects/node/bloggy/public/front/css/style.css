@@ -1,3 +1,13 @@
+.blog-box .posts-thumb a .fullimage {
+  display: flex;
+}
+.blog-box .posts-thumb a .fullimage img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
 .header-area {
   padding-bottom: 12px;
 }
@@ -68,6 +78,16 @@
 
 .image_list {
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+.image_list img {
+  margin-right: 12px;
+  height: 70px;
+  border: 1px solid #d72924;
+  padding: 7px 10px;
+  display: inline-flex;
+  margin-bottom: 10px;
 }
 
 .post-img {
@@ -167,4 +187,8 @@ span.note-icon-caret {
   margin-top: -1px;
   height: calc(100vh - 50px - 10px);
   border-radius: 0px 0px 4px 4px;
+}
+
+.note-editor.note-airframe .note-editing-area .note-editable, .note-editor.note-frame .note-editing-area .note-editable {
+  max-height: 500px;
 }/*# sourceMappingURL=style.css.map */

@@ -3,6 +3,16 @@ $background-color_1: #fff;
 
 .image_list {
 	flex-wrap: wrap;
+    align-items: center;
+	justify-content: flex-start;
+	img{
+		margin-right: 12px;
+		height: 70px;
+		border: 1px solid #d72924;
+		padding: 7px 10px;
+		display: inline-flex;
+		margin-bottom: 10px;
+	}
 }
 .post-img {
 	width: 100px;
@@ -101,4 +111,9 @@ span.note-icon-caret {
 		height: calc(100vh - 50px - 10px);
 		border-radius: 0px 0px 4px 4px;
 	}
+}
+
+
+.note-editor.note-airframe .note-editing-area .note-editable, .note-editor.note-frame .note-editing-area .note-editable{
+	max-height: 500px;
 }

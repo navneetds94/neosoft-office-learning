@@ -12,56 +12,54 @@
                 <div class="contact-form">
                     <h3>Write Blog</h3>
 
-                    <form id="contactForm">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <input type="text" name="name" class="form-control fw-bold" id="name" placeholder="Blog Title" required data-error="Please enter your name">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
+                    <form action="/add-post" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input type="text" name="title" class="form-control fw-bold" placeholder="Blog Title"
+                                required />
+                        </div>
 
-                            <div class="col-lg-12 mt-3">
-                                <div class="form-group d-flex image_list">
-                                    <div class="post-img">
-                                        <img src="/theme/front/assets/img/1.jpg" alt="blog-image" />
-                                        <button class="delete-it">x</button>
-                                    </div>
-                                    <div class="post-img">
-                                        <img src="/theme/front/assets/img/1.jpg" alt="blog-image" />
-                                        <button class="delete-it">x</button>
-                                    </div>
-                                    <div class="post-img">
-                                        <img src="/theme/front/assets/img/1.jpg" alt="blog-image" />
-                                        <button class="delete-it">x</button>
-                                    </div>
-                                    <div class="post-img">
-                                        <img src="/theme/front/assets/img/1.jpg" alt="blog-image" />
-                                        <button class="delete-it">x</button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-lg-12 mt-4">
+                            <div class="form-group">
+                                <div class="d-flex image_list"></div>
+                                <input type="file" class="form-control" accept="image/*" name="slides" required
+                                    id="slide_list">
 
-                            <div class="col-lg-12 mt-4">
-                                <div class="form-group">
-                                    <input type="file" class="form-control" accept="image/*" required multiple>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
+                                <script>
+                                    $(function () {
+                                        // Multiple images preview in browser
+                                        var imagesPreview = function (input, placeToInsertImagePreview) {
 
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <textarea id="summernote"></textarea>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
+                                            if (input.files) {
+                                                var filesAmount = input.files.length;
 
-                            <div class="col-lg-12">
-                                <button type="submit" class="btn btn-primary">Post</button>
-                                <div id="msgSubmit" class="h3 text-center hidden"></div>
-                                <div class="clearfix"></div>
+                                                for (i = 0; i < filesAmount; i++) {
+                                                    var reader = new FileReader();
+
+                                                    reader.onload = function (event) {
+                                                        $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                                                    }
+
+                                                    reader.readAsDataURL(input.files[i]);
+                                                }
+                                            }
+
+                                        };
+
+                                        $('#slide_list').on('change', function () {
+                                            imagesPreview(this, 'div.image_list');
+                                        });
+                                    });
+                                </script>
                             </div>
                         </div>
+
+                        <div class="col-lg-12 mt-4">
+                            <div class="form-group">
+                                <textarea id="summernote" name="content"></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
@@ -69,3 +67,25 @@
     </div>
 </section>
 <!-- End Contact Us Area -->
+<script>
+    $(document).ready(function () {
+        $('textarea#summernote').summernote({
+            placeholder: 'Type your post',
+            tabsize: 2,
+            height: 300,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
+                ['fontname', ['fontname']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'hr']],
+                ['view', ['fullscreen', 'codeview']],
+                ['help', ['help']]
+            ],
+        });
+    });
+</script>
