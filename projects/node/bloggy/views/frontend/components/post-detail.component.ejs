@@ -44,6 +44,7 @@
                     </div>
                 </div>
 
+                <% if(isAuthenticated){ %>
                 <div class="comments-area">
                     <h3 class="comments-title">2 Comments:</h3>
 
@@ -66,10 +67,6 @@
 
                                 <div class="comment-content">
                                     <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                                </div>
-
-                                <div class="reply">
-                                    <a href="#" class="comment-reply-link">Reply</a>
                                 </div>
                             </article>
 
@@ -121,10 +118,6 @@
                                 <div class="comment-content">
                                     <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                                 </div>
-
-                                <div class="reply">
-                                    <a href="#" class="comment-reply-link">Reply</a>
-                                </div>
                             </article>
                         </li>
                     </ol>
@@ -132,7 +125,7 @@
                     <div class="comment-respond">
                         <h3 class="comment-reply-title">Leave a Reply</h3>
 
-                        <form class="comment-form">
+                        <form class="comment-form" action="/send-comment/<%= postData.id %>" method="POST">
                             <p class="comment-notes">
                                 <span id="email-notes">Your email address will not be published.</span>
                                  Required fields are marked 
@@ -142,29 +135,15 @@
                                 <label for="comment">Comment</label>
                                 <textarea name="comment" id="comment" cols="45" rows="5" maxlength="65525" required="required"></textarea>
                             </p>
-                            <p class="comment-form-author">
-                                <label for="name">Name <span class="required">*</span></label>
-                                <input type="text" id="author" name="author" required="required">
-                            </p>
-                            <p class="comment-form-email">
-                                <label for="email">Email <span class="required">*</span></label>
-                                <input type="email" id="email" name="email" required="required">
-                            </p>
-                            <p class="comment-form-url">
-                                <label for="url">Website</label>
-                                <input type="url" id="url" name="url">
-                            </p>
-                            <p class="comment-form-cookies-consent">
-                                <input type="checkbox" value="yes" name="wp-comment-cookies-consent" id="wp-comment-cookies-consent">
-                                <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label>
-                            </p>
                             <p class="form-submit">
                                 <input type="submit" name="submit" id="submit" class="submit" value="Post Comment">
                             </p>
                         </form>
                     </div>
                 </div>
+                <% } %>
             </div>
+            
 
             <div class="col-lg-4 col-md-12">
                 <aside class="widget-area" id="secondary">

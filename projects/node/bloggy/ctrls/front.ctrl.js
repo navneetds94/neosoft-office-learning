@@ -1,5 +1,6 @@
 const User = require('../models/Users.mdl');
 const Blog = require('../models/Blogs.mdl');
+
 const nodemailer = require('nodemailer');
 const { Op } = require("sequelize");
 const sequelize = require('../util/database');
@@ -15,7 +16,7 @@ let transporter = nodemailer.createTransport({
 });
 
 // Home Page
-module.exports.getHome = (req, res) => {
+module.exports.getHome = (req, res, next) => {
     console.log(req.session.isLogin)
     // console.log(req.session.userId)
     // console.log(req.session.isOtp)
@@ -29,7 +30,8 @@ module.exports.getHome = (req, res) => {
                 isAuthenticated: req.session.isLogin,
                 isOtp : req.session.isOtp,
                 otpEmail : req.session.sendEmail,
-                otpNotMatched : req.session.otpNotMatched
+                otpNotMatched : req.session.otpNotMatched,
+                // csrfToken: req.session.csfTokken
             });
         }).catch(err => console.log(err));
     }
@@ -39,20 +41,21 @@ module.exports.getHome = (req, res) => {
             isAuthenticated: req.session.isLogin,
             isOtp : req.session.isOtp,
             otpEmail : req.session.sendEmail,
-            otpNotMatched : req.session.otpNotMatched
+            otpNotMatched : req.session.otpNotMatched,
+            // csrfToken: req.csrfToken()
         });
     }
 }
 
 // Login Page
-module.exports.getLogin = (req, res) => {
+module.exports.getLogin = (req, res, next) => {
     res.render('frontend/page-list/login', {
         title: 'Sign In',
         isAuthenticated: req.session.isLogin
     });
 }
 
-module.exports.postLogin = (req, res) => {
+module.exports.postLogin = (req, res, next) => {
     const creds = req.body
     const usrid = creds.username;
     const pwd = creds.password;
@@ -75,6 +78,8 @@ module.exports.postLogin = (req, res) => {
                 // console.log(results[0].id);
                 req.session.isLogin = true;
                 req.session.userId = results[0].id;
+                // req.session.csfTokken = req.csrfToken()
+                // console.log(req.session.csfTokken)
                 res.redirect('/')
             }
             else{
@@ -95,14 +100,14 @@ module.exports.postLogout = (req,res) => {
 
 
 // Register Page
-module.exports.getRegister = (req, res) => {
+module.exports.getRegister = (req, res, next) => {
     res.render('frontend/page-list/register', {
         title: 'Sign Up',
         isAuthenticated: req.session.isLogin
     });
 }
 
-module.exports.postRegister = (req, res) => {
+module.exports.postRegister = (req, res, next) => {
     const username = req.body.username;
     const name = req.body.name;
     const email = req.body.email;
@@ -380,7 +385,7 @@ module.exports.postVerifyOtp = (req,res) => {
     }
 }
 
-module.exports.getRegisterSuccessful = (req, res) => {
+module.exports.getRegisterSuccessful = (req, res, next) => {
     const username = req.query.username
     //console.log(username)
     req.session.destroy((err) => {
@@ -399,6 +404,7 @@ module.exports.getRegisterSuccessful = (req, res) => {
 // Write Post Page
 module.exports.getWritePost = (req,res) => {
     //console.log(req.session.userId)
+    
     res.render('frontend/page-list/write-post', {
         title: 'Write Post',
         isAuthenticated: req.session.isLogin
@@ -434,11 +440,20 @@ module.exports.postWritePost = (req,res) => {
 module.exports.getPostDetail = (req,res) => {
     const blogId = req.params.blogId
     Blog.findByPk(blogId).then(result => {
-        console.log(result)
+        //console.log(result)
         res.render('frontend/page-list/post-detail',{
             title: 'Post',
             isAuthenticated: req.session.isLogin,
             postData: result
         })
-    }).catch(err=> {console.log(err)});
+    })
+    .catch(err=> {console.log(err)});
+}
+
+
+module.exports.postComment = (req,res) => {
+    const blogId = req.params.blogId;
+    const comment =req.body.comment;
+    console.log(blogId);
+    console.log(comment);
 }

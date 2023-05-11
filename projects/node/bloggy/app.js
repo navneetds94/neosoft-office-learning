@@ -6,6 +6,9 @@ const PORT = process.env.PORT || 3000
 const bodyParser = require('body-parser');
 const multer = require('multer');
 app.use(bodyParser.urlencoded({extended: false}));
+// const csrf = require('csurf');
+// const csrfProtection = csrf()
+// console.log(csrfProtection)
 
 const fileStorage = multer.diskStorage({
     destination: (req,file,cb) => {
@@ -42,7 +45,7 @@ app.set("views","views");
 const admin = require('./routes/admin');
 const frontend = require('./routes/frontend');
 
-
+// app.use(csrfProtection);
 app.use(frontend);
 app.use(error_ctrl.get404)
 
