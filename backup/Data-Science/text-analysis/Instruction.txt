@@ -1,0 +1,23 @@
+Hi Sir/ Mam:
+
+This is very thankfull you gave , me oppportunity to do this assignement. I done this assignment and want to inform about some things gien below :- 
+
+1.) Extracted data first come in extracted folder that is sub folder of data.
+
+2.) Filtered data show in filtered-text folder that is sub folder of data this data is fully cleaned and after that i started text analysis on it , that mentiond in the assingment.
+
+3.) in total word cound i choose all words for formullas.
+
+4.) In Subjective Score and Word Count i used words that is removed after stop words clean.
+
+5.) I Confused in Syllable but i done in that section add their syllable value if text found in array.
+
+6.) Syllable spped is slow in geeting data because of i think lot of data in their around 10 - 15 mins , sorry i dont know currently how to make this much faster.
+
+
+
+
+Thats it about my assignment instruction.
+
+
+ 
