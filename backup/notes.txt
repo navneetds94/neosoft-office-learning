@@ -1,0 +1,32 @@
+-> Docker :- It is a platform for packaging , deploying and running applications.
+  Docker is a platform which packages an application and all its dependencies together in the form of container.
+
+   -> DockerFile(no extension) :- text document which contains all the commands that a user can call on line to line to assemble an image 
+      linux 
+      copy files 
+      copy package 
+      npm install 
+      npm start 
+   -> Docker Image :- Template to create a docker container. When we run image it create a container  
+   -> Docker Container :- Running instance of the docker image.It hold entire package to run application.
+      Process cycle 
+        Docker File --> Build --> Docker Image --> run -> DOcker Container  
+    -> Install Docker 
+        Download and Install DOcker 
+          -> windows or linux 
+        Want a image of mysql 
+
+        DOcker (local) (git)
+        DockerHub (store image) (github)(platform)
+        docker pull mysql
+        -> run mysql image to create container 
+        docker run -it --name my-db -e MYSQL_ROOT_PASSWORD=test123 -d mysql:latest 
+        -> to check 
+         docker ps 
+        -> go to container (execute)
+        docker exec -it containerid bash 
+        -> stop a container 
+           docker stop containerid/name 
+        -> docker rm id 
+        -> remove images 
+         docker rmi imagename 
