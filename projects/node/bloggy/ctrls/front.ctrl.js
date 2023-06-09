@@ -1,9 +1,14 @@
 const User = require('../models/Users.mdl');
 const Blog = require('../models/Blogs.mdl');
+const Comments = require('../models/Comments.mdl');
+const Sender = require('../models/Sender.mdl');
+const Replyer = require('../models/Replyer.mdl');
+
 
 const nodemailer = require('nodemailer');
 const { Op } = require("sequelize");
 const sequelize = require('../util/database');
+const session = require('express-session');
 let transporter = nodemailer.createTransport({
     service: "gmail",
     host: 'smtp.gmail.com',
@@ -20,28 +25,28 @@ module.exports.getHome = (req, res, next) => {
     console.log(req.session.isLogin)
     // console.log(req.session.userId)
     // console.log(req.session.isOtp)
-    
-    if (req.session.isLogin){
-        Blog.findAll({where:[{"userId":req.session.userId}]}).then(results => {
+
+    if (req.session.isLogin) {
+        Blog.findAll({ where: [{ "userId": req.session.userId }] }).then(results => {
             console.log(results)
             res.render('frontend/page-list/index', {
                 blog_list: results,
                 title: 'Home',
                 isAuthenticated: req.session.isLogin,
-                isOtp : req.session.isOtp,
-                otpEmail : req.session.sendEmail,
-                otpNotMatched : req.session.otpNotMatched,
+                isOtp: req.session.isOtp,
+                otpEmail: req.session.sendEmail,
+                otpNotMatched: req.session.otpNotMatched,
                 // csrfToken: req.session.csfTokken
             });
         }).catch(err => console.log(err));
     }
-    else{
+    else {
         res.render('frontend/page-list/index', {
             title: 'Home',
             isAuthenticated: req.session.isLogin,
-            isOtp : req.session.isOtp,
-            otpEmail : req.session.sendEmail,
-            otpNotMatched : req.session.otpNotMatched,
+            isOtp: req.session.isOtp,
+            otpEmail: req.session.sendEmail,
+            otpNotMatched: req.session.otpNotMatched,
             // csrfToken: req.csrfToken()
         });
     }
@@ -64,16 +69,16 @@ module.exports.postLogin = (req, res, next) => {
         // where: [{username: usrid} , {email: usrid}]})
         where: [
             {
-                [Op.or]:[
+                [Op.or]: [
                     { username: usrid }, // department = 'HR'
                     { email: usrid }, // salary > 50000
                 ]
             },
-            {password: pwd}
+            { password: pwd }
         ]
     })
         .then(results => {
-            if (results.length > 0){
+            if (results.length > 0) {
                 // console.log(results);
                 // console.log(results[0].id);
                 req.session.isLogin = true;
@@ -82,7 +87,7 @@ module.exports.postLogin = (req, res, next) => {
                 // console.log(req.session.csfTokken)
                 res.redirect('/')
             }
-            else{
+            else {
                 console.log("User Name or Password dosen't matched");
                 res.redirect('/login');
             }
@@ -91,7 +96,7 @@ module.exports.postLogin = (req, res, next) => {
     //res.redirect('/login');
 }
 
-module.exports.postLogout = (req,res) => {
+module.exports.postLogout = (req, res) => {
     req.session.destroy((err) => {
         console.log(err);
         res.redirect('/');
@@ -209,12 +214,12 @@ module.exports.postRegister = (req, res, next) => {
 }
 
 
-module.exports.postVerifyOtp = (req,res) => {
+module.exports.postVerifyOtp = (req, res) => {
     email_otp = req.session.otpSend
     opt_val = req.body
     otp_val_joined = Object.values(opt_val)
     res_otp = otp_val_joined.join("")
-    
+
     // console.log(`Email otp => ${email_otp}`)
     // console.log(`Response otp => ${res_otp}`)
     let user_name = req.session.sendUserName;
@@ -345,9 +350,9 @@ module.exports.postVerifyOtp = (req,res) => {
 </html>
     `
 
-    
 
-    if(email_otp == res_otp){
+
+    if (email_otp == res_otp) {
         // console.log("Matched")
         User.create({
             username: user_name,
@@ -357,7 +362,7 @@ module.exports.postVerifyOtp = (req,res) => {
         }).then(result => {
             //console.log(result);
             // console.log("User Created Successfully");
-            
+
             let mailOptions = {
                 from: 'navneetaneja.ds@gmail.com',
                 to: user_email,
@@ -376,9 +381,9 @@ module.exports.postVerifyOtp = (req,res) => {
                 }
             })
         })
-        .catch(err => console.log(err))
+            .catch(err => console.log(err))
     }
-    else{
+    else {
         console.log("Not Matched");
         req.session.otpNotMatched = true;
         res.redirect('/')
@@ -402,16 +407,16 @@ module.exports.getRegisterSuccessful = (req, res, next) => {
 }
 
 // Write Post Page
-module.exports.getWritePost = (req,res) => {
+module.exports.getWritePost = (req, res) => {
     //console.log(req.session.userId)
-    
+
     res.render('frontend/page-list/write-post', {
         title: 'Write Post',
         isAuthenticated: req.session.isLogin
     })
 }
 
-module.exports.postWritePost = (req,res) => {
+module.exports.postWritePost = (req, res) => {
     const user_id = req.session.userId
     const title = req.body.title;
     const image_file = req.file;
@@ -420,10 +425,10 @@ module.exports.postWritePost = (req,res) => {
     console.log(user_id)
 
     const image = image_file.path;
-    if(!image_file){
+    if (!image_file) {
         return "Other Format";
     }
-    else{
+    else {
         Blog.create({
             userId: user_id,
             title: title,
@@ -432,28 +437,100 @@ module.exports.postWritePost = (req,res) => {
         }).then(result => {
             console.log('Blog Added Succesfully');
             res.redirect('/');
-          }).catch(err=> {console.log(err)})
+        }).catch(err => { console.log(err) })
     }
 }
 
 // post detail page
-module.exports.getPostDetail = (req,res) => {
-    const blogId = req.params.blogId
-    Blog.findByPk(blogId).then(result => {
-        //console.log(result)
-        res.render('frontend/page-list/post-detail',{
-            title: 'Post',
-            isAuthenticated: req.session.isLogin,
-            postData: result
+Sender.belongsTo(Comments);
+Sender.belongsTo(User);
+Comments.hasOne(Replyer, { foreignKey: 'commentId' });
+
+module.exports.getPostDetail = (req, res) => {
+    const blogId = req.params.blogId;
+  
+    Blog.findByPk(blogId)
+      .then(result => {
+        // Fetch blog details
+        Sender.findAll({
+          where: {
+            blogId: Number(blogId)
+          },
+          include: [
+            { model: Comments, include: [Replyer] },
+            User
+          ]
         })
+          .then(results => {
+            // Process the comments data
+            const commentData = results;
+            console.log(commentData)
+  
+            // Render the view with the necessary data
+            res.render('frontend/page-list/post-detail', {
+              title: 'Post',
+              isAuthenticated: req.session.isLogin,
+              postData: result,
+              commentData: commentData,
+              userId: req.session.userId
+            });
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+module.exports.postComment = (req, res) => {
+    const blogId = req.params.blogId;
+    const comment = req.body.comment;
+    Comments.create({
+        comment: comment
     })
-    .catch(err=> {console.log(err)});
+        .then(result => {
+            Sender.create({
+                commentId: result.id,
+                userId: req.session.userId,
+                blogId: blogId,
+                type: "Sender"
+            })
+        })
+        .then(() => {
+            console.log("Comment Added Succesfully")
+            res.redirect(`/post-detail/${blogId}`);
+        })
+        .catch(err => { console.log(err) })
 }
 
+module.exports.postReply = (req,res) => {
+    const replyTo = req.query.replyto
+    const replyBy = req.query.replyby
+    const blogId = req.query.blogid
+    const commentid = req.query.commentid
+    const data = req.body;
+    console.log(replyTo)
+    console.log(replyBy)
+    console.log(blogId)
+    console.log(commentid)
 
-module.exports.postComment = (req,res) => {
-    const blogId = req.params.blogId;
-    const comment =req.body.comment;
-    console.log(blogId);
-    console.log(comment);
+    User.findByPk(replyBy).then(results => {
+        console.log(results.name)
+        Replyer.create({
+            commentId: commentid,
+            to: replyTo,
+            by: replyBy,
+            reply: data.replycomment,
+            name: results.name,
+            type: "Replyer"
+        }).then(() => {
+            console.log("Comment Added Succesfully")
+            res.redirect(`/post-detail/${blogId}`);
+        })
+        .catch(err => { console.log(err) })
+    }).catch(e => {console.log(e)})
+
+    
 }

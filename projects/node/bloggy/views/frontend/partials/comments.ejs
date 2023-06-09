@@ -1,0 +1,79 @@
+<div class="comments-area">
+
+    <% if(commentData.length> 0) { %>
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <h3 class="comments-title">
+                    <%= commentData.length %> Comments:
+                </h3>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <button class="btn-comment-sort"><i class="fa fa-angle-up me-1"></i></button>
+            </div>
+        </div>
+
+        
+
+        <ol class="comment-list">
+            <% for(let data of commentData){ %>
+
+                <li class="comment">
+                    <article class="comment-body">
+                        <footer class="comment-meta">
+                            <div class="comment-author vcard">
+                                <img src="/theme/front/assets/img/author1.jpg" class="avatar"
+                                    alt="image">
+                                <b class="fn">
+                                    <%= data.user.name %>
+                                </b>
+                                <span class="says">says:</span>
+                            </div>
+
+                            <div class="comment-metadata">
+                                <a href="javascript: void(0)">
+                                    <time>
+                                        <%= new Date(data.comment.createdAt).toDateString() %>
+                                            At
+                                            <%= new
+                                                Date(data.comment.createdAt).toLocaleTimeString() %>
+                                    </time>
+                                </a>
+                            </div>
+                        </footer>
+
+                        <div class="comment-content">
+                            <p>
+                                <%= data.comment.comment %>
+                            </p>
+                        </div>
+                    </article>
+                </li>
+                <%}%>
+        </ol>
+        <%}%>
+
+            <div class="comment-respond">
+                <h3 class="comment-reply-title">Post Comment</h3>
+
+                <form class="comment-form" action="/send-comment/<%= postData.id %>" method="POST">
+                    <p class="comment-form-comment">
+                        <label for="comment">Comment</label>
+                        <textarea name="comment" id="comment" cols="45" rows="5" maxlength="65525"
+                            required="required"></textarea>
+                    </p>
+                    <p class="form-submit">
+                        <input type="submit" name="submit" id="submit" class="submit"
+                            value="Post Comment">
+                    </p>
+                </form>
+            </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('.btn-comment-sort').click(function(){
+            $(this).toggleClass('oldest')
+            $('.comment-list').toggleClass('oldest-comment')
+        })
+    })
+</script>

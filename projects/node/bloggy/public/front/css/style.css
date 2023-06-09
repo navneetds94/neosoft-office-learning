@@ -191,4 +191,65 @@ span.note-icon-caret {
 
 .note-editor.note-airframe .note-editing-area .note-editable, .note-editor.note-frame .note-editing-area .note-editable {
   max-height: 500px;
+}
+
+.comments-area .comment-body .reply a, .comments-area .comment-body .reply button {
+  border: 1px solid #d72924;
+  color: #d72924;
+  display: inline-block;
+  padding: 5px 20px 6px;
+  border-radius: 30px;
+  font-size: 13px;
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+  transition: all 300ms ease;
+}
+
+.comments-area .comment-body .reply a:hover, .comments-area .comment-body .reply button:hover {
+  background-color: #d72924 !important;
+  color: #fff !important;
+}
+
+.comments-area .comment-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+}
+
+.comments-area .comment-list li {
+  width: 100%;
+}
+
+.children ~ article {
+  display: none !important;
+}
+
+.btn-comment-sort {
+  float: right;
+  padding: 5px 10px;
+  border: 1px solid #d72924;
+  background: transparent;
+  color: #d72924;
+  border-radius: 4px;
+}
+
+.btn-comment-sort:after {
+  content: "Latest";
+}
+
+.btn-comment-sort:hover {
+  background-color: #d72924;
+  color: #fff !important;
+}
+
+.oldest:after {
+  content: "Oldest";
+}
+
+.comment-list.oldest-comment {
+  flex-direction: column;
 }/*# sourceMappingURL=style.css.map */

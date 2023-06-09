@@ -23,7 +23,8 @@ routes.get('/write-post', isAuth, ctrl.getWritePost);
 routes.post('/add-post', ctrl.postWritePost);
 
 // post-detail page
-routes.get('/post-detail/:blogId', ctrl.getPostDetail)
+routes.get('/post-detail/:blogId', isAuth , ctrl.getPostDetail)
 routes.post('/send-comment/:blogId', ctrl.postComment)
+routes.post('/reply', ctrl.postReply)
 
 module.exports = routes;

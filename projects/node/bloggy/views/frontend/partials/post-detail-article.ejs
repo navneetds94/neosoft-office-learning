@@ -1,0 +1,35 @@
+<div class="news-details">
+    <div class="article-img">
+        <img src="../<%= postData.slides %>" alt="image">
+    </div>
+
+    <div class="article-content">
+        <ul class="entry-meta">
+            <li><i class="icofont-user"></i> <a href="#">Sinmun</a></li>
+            <li><i class="icofont-eye-alt"></i> 1040</li>
+            <li><i class="icofont-calendar"></i>
+                <%= new Date(postData.createdAt).toDateString() %>
+            </li>
+        </ul>
+
+        <h3>
+            <%= postData.title %>
+        </h3>
+
+        <div class="blog_content">
+            <%- postData.content %>
+        </div>
+    </div>
+</div>
+
+<div class="post-controls-buttons">
+    <div>
+        <% if(postData.id> 1) {%>
+            <a href="/post-detail/<%= postData.id - 1 %>">Prev Post</a>
+            <% } %>
+    </div>
+
+    <div>
+        <a href="/post-detail/<%= postData.id + 1 %>">Next Post</a>
+    </div>
+</div>

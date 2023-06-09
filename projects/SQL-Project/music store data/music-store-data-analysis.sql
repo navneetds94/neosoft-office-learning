@@ -152,3 +152,4 @@ where subq.ranking = 1;
 WAQ that returns the country along with the top customers and how much they spent.
 For the country top amount is shared provide all customers who spent this amount
 */
+SELECT * FROM customer;
