@@ -1,5 +1,12 @@
-const mongoose = require('mongoose');
-const uri = "mongodb+srv://navneet94:612CvanxJkvdb9zb@cluster0.vki7ing.mongodb.net/?retryWrites=true&w=majority";
-const connection = mongoose.connect(uri)
+const mongoose = require('mongoose')
+const url = 'mongodb+srv://navneet:mrg8TgZUkdvXB20b@cluster0.wv1eg4z.mongodb.net/';
+const pool = mongoose.connect(url)
+.then((x) => {
+  console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+})
+.catch((err) => {
+  console.error('Error connecting to mongo', err.reason)
+})
 
-module.exports = connection
+
+module.exports = pool
